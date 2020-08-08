@@ -1,6 +1,4 @@
-package com.tipes.mobile;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.tipes.mobile.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +9,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.snackbar.Snackbar;
+import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityLoginBinding;
-import com.tipes.mobile.user.MainActivityUser;
+import com.tipes.mobile.view.user.MainActivityUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-
-
 
         validasiform();
 
