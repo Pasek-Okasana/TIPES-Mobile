@@ -36,6 +36,10 @@ public class MainActivityUser extends AppCompatActivity {
         tambahDataMenu();
         setMenu();
         onClickItemMenu();
+
+        binding.txtGreeting.setText("Selamat Pagi");
+        binding.txtUsername.setText("Nama Orang");
+        binding.txtTanggal.setText("1 agustus 2020");
     }
 
     private void onClickItemMenu() {
@@ -50,7 +54,7 @@ public class MainActivityUser extends AppCompatActivity {
     private void setMenu() {
         mList = new ArrayList<>();
         mAdapter = new MainUserAdapter(mMenuList);
-        mLayoutManager = new GridLayoutManager(MainActivityUser.this, 2);
+        mLayoutManager = new GridLayoutManager(MainActivityUser.this, 1);
         binding.recyclerHomeUser.setHasFixedSize(true);
 
         binding.recyclerHomeUser.setLayoutManager(mLayoutManager);
@@ -62,10 +66,10 @@ public class MainActivityUser extends AppCompatActivity {
 
     private void tambahDataMenu() {
         mMenuList = new ArrayList<>();
-        mMenuList.add(new MenuDashboardModel("Petunjuk", "", R.drawable.ic_folder_e_32dp));
-        mMenuList.add(new MenuDashboardModel("Kuisioner", "", R.drawable.ic_pencil_e_32dp));
-        mMenuList.add(new MenuDashboardModel("Nilai", "", R.drawable.ic_centang_e_32dp));
-        mMenuList.add(new MenuDashboardModel("Akun", "", R.drawable.ic_user_e_32dp));
+        mMenuList.add(new MenuDashboardModel("Petunjuk", "Klik Item Untuk Melihat Petunjuk Pengisian Kuisioner", R.drawable.ic_folder_e_32dp));
+        mMenuList.add(new MenuDashboardModel("Kuisioner", "Klik Item Untuk Melakukan Pengisian Kuisioner", R.drawable.ic_pencil_e_32dp));
+        mMenuList.add(new MenuDashboardModel("Nilai", "Klik IKtem Untuk Melihat Hasil", R.drawable.ic_centang_green_32dp));
+        mMenuList.add(new MenuDashboardModel("Akun", "Klik Item Untuk Melihat Informasi Akun & Logout", R.drawable.ic_user_e_32dp));
     }
 
     /**

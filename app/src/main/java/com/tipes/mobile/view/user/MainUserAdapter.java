@@ -62,6 +62,7 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
         public void bindToView(MenuDashboardModel itemPosition, int position) {
             mBinding.imgLogo.setImageResource(itemPosition.getGambar());
             mBinding.txtNama.setText(itemPosition.getNama());
+            mBinding.txtKeterangan.setText(itemPosition.getKeterangan());
         }
     }
 

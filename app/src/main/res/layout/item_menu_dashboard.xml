@@ -6,10 +6,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_menu"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="12dp"
         android:elevation="6dp"
@@ -19,10 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="16dp"
             android:background="@drawable/gradien_co_radar">
 
@@ -30,18 +27,36 @@
                 android:id="@+id/img_logo"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_gravity="center"/>
+                android:layout_alignTop="@id/txt_nama"
+                android:layout_alignBottom="@id/txt_keterangan"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_alignParentStart="true"/>
             <TextView
                 android:id="@+id/txt_nama"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="18sp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/img_logo"
+                android:layout_marginStart="16dp"
+                android:textSize="19sp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:text=""/>
-        </LinearLayout>
+            <TextView
+                android:id="@+id/txt_keterangan"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/img_logo"
+                android:layout_below="@id/txt_nama"
+                android:layout_marginStart="16dp"
+                android:textSize="13sp"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                android:text=""/>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

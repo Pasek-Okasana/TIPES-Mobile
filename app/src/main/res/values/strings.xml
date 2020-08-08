@@ -21,4 +21,8 @@
     <string name="background_silver">background silver</string>
     <string name="logo">logo</string>
     <string name="KolomKosong">Kolom Kosong</string>
+    <string name="Hallo">Hallo</string>
+    <string name="komaspasi">", "</string>
+    <string name="deskripsi">deskripsi</string>
+    <string name="SelamatDatangDi">Selamat Datang Di</string>
 </resources>
