@@ -1,0 +1,24 @@
+<resources>
+    <!--    String Session Shared   -->
+    <string name="SP_FOR_LOGIN_APP">spLoginApp</string>
+    <string name="SP_USERNAME_APP">spUsernameApp</string>
+    <string name="SP_ROLE_APP">spRoleApp</string>
+    <string name="SP_EMAIL_APP">spEmailApp</string>
+    <string name="SP_STILL_LOGIN_APP">spStillLoginApp</string>
+    <string name="SP_ID_USER_APP">spIDUserApp</string>
+    <string name="SP_PASSWORD_APP">spPasswordApp</string>
+    <string name="SP__APP">spApp</string>
+
+    <!--   String Apps -->
+    <string name="app_name">TIPES Mobile</string>
+    <string name="TIPES">TIPES</string>
+    <string name="kepanjangan_tipes">Test Inventory Personal Survey</string>
+    <string name="LOGIN">LOGIN</string>
+    <string name="LOGIN_PERSERTA">LOGIN PESERTA</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Registrasi">Registrasi</string>
+    <string name="background_silver">background silver</string>
+    <string name="logo">logo</string>
+    <string name="KolomKosong">Kolom Kosong</string>
+</resources>
