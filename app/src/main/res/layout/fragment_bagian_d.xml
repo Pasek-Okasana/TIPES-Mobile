@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.user.petunjuk.fragment.BagianDFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--  Judul View         -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/BagianD_BidangKeahlian"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/isi_petunjuk"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="@string/BagianD_Keterangan1"
+                />
+
+            <!--  List View         -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_petunjuk_D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+
+            <!--  Tabel View         -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/isi_petunjuk"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="@string/BagianD_Keterangan2"
+                />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:background="#ECEFF1">
+                    <!--  TODO: ROW 1      -->
+                    <TextView
+                        android:id="@+id/tab_no"
+                        android:layout_width="40dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_blue_light"
+                        android:text="@string/No"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tab_field1"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/tab_no"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="start"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/BagianD_BidangKeahlian"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tab_field2"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/tab_field1"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/SKOR"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <!--  TODO: ROW 2      -->
+                    <TextView
+                        android:id="@+id/tab_no_r2"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_no"
+                        android:background="@android:color/holo_blue_light"
+                        android:text="@string/spasi"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tab_field1_r2"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1"
+                        android:layout_toStartOf="@id/tab_field2"
+                        android:layout_toEndOf="@id/tab_no"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="start"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text=""
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/tab_field1_r2"
+                        android:background="@android:color/holo_blue_light"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tab_field2_r2"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/Rendah"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field3_r2"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/Tinggi"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+
+                    <!--  TODO: ROW 3      -->
+                    <TextView
+                        android:id="@+id/tab_no_r3"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_no_r2"
+                        android:background="@android:color/holo_blue_light"
+                        android:text=""
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tab_field1_r3"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1_r2"
+                        android:layout_toStartOf="@id/tab_field2"
+                        android:layout_toEndOf="@id/tab_no"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="start"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text=""
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1_r2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/tab_field1_r3"
+                        android:background="@android:color/holo_blue_light"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <TextView
+                            android:id="@+id/tab_field2_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s1"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field3_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s2"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field4_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s3"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field5_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s4"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field6_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s5"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field7_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s6"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field8_r3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/holo_blue_light"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/s7"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                    <!--  TODO: ROW 4      -->
+                    <TextView
+                        android:id="@+id/tab_no_r4"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_no_r3"
+                        android:layout_alignBottom="@id/tab_field1_r4"
+                        android:gravity="center"
+                        android:text="@string/s1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tab_field1_r4"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1_r3"
+                        android:layout_toStartOf="@id/tab_field2"
+                        android:layout_toEndOf="@id/tab_no"
+                        android:gravity="start"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/BagianD_Ex_1" />
+
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tab_field1_r3"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/tab_field1_r3"
+                        android:background="#ECEFF1"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <TextView
+                            android:id="@+id/tab_field2_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/X"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field3_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field4_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field5_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field6_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field7_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                           android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tab_field8_r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </HorizontalScrollView>
+            <!--  Keterangan Bottom View         -->
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:layout_marginTop="16dp"
+                android:textSize="@dimen/isi_petunjuk"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="@string/Keterangan"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/isi_petunjuk"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text="@string/BagianD_Keterangan3"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/isi_petunjuk"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/BagianD_Keterangan4"
+                />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

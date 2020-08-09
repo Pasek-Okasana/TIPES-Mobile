@@ -57,6 +57,7 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
                     }
                 }
             });
+
         }
 
         public void bindToView(MenuDashboardModel itemPosition, int position) {

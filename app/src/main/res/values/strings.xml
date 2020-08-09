@@ -1,4 +1,14 @@
 <resources>
+    <string-array name="DaysOfWeek">
+        <item name="Sunday">Sunday</item>
+        <item name="Sunday">Monday</item>
+        <item name="Sunday">Tuesdayy</item>
+        <item name="Sunday">Wednesday</item>
+        <item name="Sunday">Thursday</item>
+        <item name="Sunday">Friday</item>
+        <item name="Sunday">Saturday</item>
+    </string-array>
+
     <!--    String Session Shared   -->
     <string name="SP_FOR_LOGIN_APP">spLoginApp</string>
     <string name="SP_USERNAME_APP">spUsernameApp</string>
@@ -9,7 +19,68 @@
     <string name="SP_PASSWORD_APP">spPasswordApp</string>
     <string name="SP__APP">spApp</string>
 
-    <!--   String Apps -->
+    <!-- Nama Act   -->
+    <string name="Petunjuk">Petunjuk</string>
+    <string name="petunjuk">petunjuk</string>
+    <string name="Kuisioner">Kuisioner</string>
+    <string name="kuisioner">kuisioner</string>
+    <string name="Nilai">Nilai</string>
+    <string name="nilai">nilai</string>
+    <string name="Akun">Akun</string>
+    <string name="akun">akun</string>
+
+    <!--  Home String    -->
+    <string name="Hallo">Hallo</string>
+    <string name="komaspasi">", "</string>
+    <string name="deskripsi">deskripsi</string>
+
+    <!--  Petunjuk String    -->
+    <!-- TODO: Bagian A    -->
+    <string name="BagianA_JenisAktifitas">Jenis Aktifitas</string>
+    <string name="BagianA_Keterangan1">     Butir pernyataan dari nomor 1 (satu) sampai dengan 66 ( enam puluh enam) berikut merupakan pernyataan yang berkaitan dengan aktifitas sehari hari. Dari keseluruhan aktifitas tersebut, beberapa diantaranya merupakan aktifitas yang senang anda lakukan dan yang lainnya mungkin tidak anda senangi. Anda diminta menjawab dengan memilih pada salah satu huruf Y atau T pada kolom yang telah disediakan.</string>
+
+    <string name="BagianA_List1">Pilihan Y berarti anda menyukai atau menyenangi aktifitas yang diajukan tersebut walaupun kenyataannya anda belum mendapatkan kesempatan untuk melakukannya. </string>
+    <string name="BagianA_List2">Pilihan T berarti anda tidak menyukai atau menyenangi aktifitas yang diajukan tersebut meskipun itu merupakan kegiatan yang wajib anda lakukan sehari- hari. </string>
+
+    <string name="BagianA_Ex_1">Bersepeda di daerah pedesaan atau pegunungan.</string>
+    <string name="BagianA_Keterangan2">Pilihan Y diatas berarti anda menyukai, menikmati dan merasa nyaman untuk bersepeda di daerah pedesaan atau pegunungan meskipun aktifitas tersebut jarang sekali atau belum pernah anda lakukan.</string>
+    <string name="BagianA_Keterangan3">Waktu yang disediakan untuk menjawab soal No. 1 s/d 66 ini adalah selama 15 menit.</string>
+
+    <!-- TODO: Bagian B    -->
+    <string name="BagianB_BidangKeahlianKompetensi">Bidang Keahlian Kompetensi</string>
+    <string name="BagianB_Keterangan1">     Butir pernyataan dari nomor 67 ( enam puluh tujuh) sampai dengan 132 ( seratus tiga puluh dua) berikut merupakan pernyataan yang berkaitan dengan bidang - bidang keahlian atau kompetensi. Dari keseluruhan bidang keahlian atau kompetensi tersebut, beberapa diantaranya merupakan bidang keahlian yang anda miliki dalam arti benar- benar mampu untuk anda lakukan atau kerjakan dengan baik, dan beberapa bidang keahlian lainnya tidak mampu untuk anada lakukan/ kerjakan dengan baik. Anda diminta menjawab dengan memilih pada salah satu huruf Y atau T pada kolom yang telah disediakan.</string>
+    <string name="BagianB_List1">Pilihan Y berarti anada merasa mampu untuk melakukan/ mengerjakan dengan baik bidang keahlian / kompetensi yang diajukan tersebut meskipun kenyataannya anda belum mendapat kesempatan untuk melakukannya.</string>
+    <string name="BagianB_List2">Pilihan T berarti keahlian / kompetensi yang diajukan tersebut tidak mampu dikerjakan atau bukan merupakan keahlian anda meskpun kenyataannya bidang keahlian tersebut sudah pernah atau bahkan sering dilakukan. </string>
+    <string name="BagianB_FieldTabel">Bidang Keahlian/Kompetensi</string>
+    <string name="BagianB_Ex_1">Saya mampu menjadi penjaga gawang pada suatu permainan sepak bola </string>
+    <string name="BagianB_Keterangan2">Pilihan T diatas berarti anda tidak mampu menjadi seorang penjaga gawang yang baik pada suatu permainan sepak bola.</string>
+    <string name="BagianB_Keterangan3">Waktu yang disediakan untuk anda menjawab soal no. 67 s/d 132 ini adalah selama 15 menit.</string>
+
+    <!-- TODO: Bagian C    -->
+    <string name="BagianC_JenisPekerjaan">Jenis Pekerjaan</string>
+    <string name="BagianC_Keterangan1">     Butir 133 ( seratus tiga puluh tiga) sampai dengan 210 ( dua ratus sepuluh) berikut berkaitan dengan berbagai jenis pekerjaan. Dari keseluruhan jenis pekerjaan tersebut, beberapa diantaranya merupakan jenis pekerjaan yang anda senangi atau ingin anda tekuni dan beberapa yang lainnya mungkin merupakan jenis pekerjaan yang tidak nada senangi atau bahkan ingin anda hindari. Anda diminta menjawab dengan memilih pada salah satu huruf Y atau T pada kolom yang telah disediakan.</string>
+    <string name="BagianC_List1">Pilihan Y berarti anda menyukai atau ingin menekuni jenis pekerjaan yang diajukan tersebut meskipun anda belum mendapat kesempatan untuk menekuninya.</string>
+    <string name="BagianC_List2">Pilihan T berarti anda tidak menyukai atau tidak ingin menekuni jenis pekerjaan tersebut pada kenyataannya anda sedang menekuni pekerjaan tersebut. </string>
+    <string name="BagianC_Ex_1">Penjaga kebun binatang</string>
+    <string name="BagianC_Keterangan2">Pilihan T diatas berarti anda tidak menyukai pekerjaan menjadi penjaga kebun binatang yang juga berkaitan dengan memelihara binatang.</string>
+    <string name="BagianC_Keterangan3">Waktu yang disediakan untuk anda menjawab soal n0. 133 s/d 210 ini adalah selama 20 menit .</string>
+
+    <!-- TODO: Bagian D    -->
+    <string name="BagianD_BidangKeahlian">Bidang Keahlian</string>
+    <string name="BagianD_Keterangan1">     Butir 211 (dua ratus satu) sampai dengan 216( dua ratus enam belas) berikut ini berkaitan dengan berbagai jenis bakat dan bidang keahlian. Berdasarkan bidang bidang keahlian tersebut, anda diminta menilai diri anda sendiri dengan memilih salah satu nilai antara 1 s/d 7 yang tersedia pada formulir. </string>
+    <string name="BagianD_Keterangan2">     Anda diwajibkan untuk tetap memberikan penilaian terhadap diri anda dengan memperkirakan seberapakah kemampuan anda dalam bidang keahlian yang diajukan tersebut, meskipun pada kenyataannya bidang keahlian tersebut belum pernah anda temui atau anda lakukan. Contoh: </string>
+    <string name="BagianD_List1">Skor 1 (satu) berarti sangat rendah atau anda sama sekali tidak memiliki kemampuan.</string>
+    <string name="BagianD_List2">Skor 2 (dua) berarti rendah akan tetapi masih lebih tinggi dari skor 1 ( satu).</string>
+    <string name="BagianD_List3">Skor 3 (tiga) berarti sedang akan tetapi lebih tinggi dati 1 dan 2.</string>
+    <string name="BagianD_List4">Skor 4 (empat) berarti sedang akan tetapi lebih tinggi dari 1,2, dan 3.</string>
+    <string name="BagianD_List5">Skor 5 (lima) berarti tinggi akan tetapi lebih rendah dari pada skor 6 dan 7.</string>
+    <string name="BagianD_List6">Skor 6 (enam) berarti tinggi yaitu lebih tinggi dari skor 5 tetapi lebih rendah dari skor 7.</string>
+    <string name="BagianD_List7">Skor 7 (tujuh) berarti sangat tinggi yaitu lebig tinggi dari skor-skor lainnya atau anda merasa sangat ahli dalam bidang tersebut.</string>
+    <string name="BagianD_Ex_1">Saya merasa ahli dan berbakat dalam menangkap ikan</string>
+    <string name="BagianD_Keterangan3">Pilihan skor 1 di atas berarti anda menilai diri anda memiliki keahlian / bakat yang sangat rendah untuk menjadi pemancing atau penangkap ika/ nelayan.</string>
+    <string name="BagianD_Keterangan4">Waktu yang disediakan untuk anda menjawab pertanyaan soal no. 211 s/d 216 berikut ini adalah selama 5 menit.</string>
+
+    <!--  String Apps -->
     <string name="app_name">TIPES Mobile</string>
     <string name="TIPES">TIPES</string>
     <string name="kepanjangan_tipes">Test Inventory Personal Survey</string>
@@ -17,12 +88,31 @@
     <string name="LOGIN_PERSERTA">LOGIN PESERTA</string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
+    <string name="Contoh">Contoh</string>
+    <string name="No">No</string>
+    <string name="Keterangan">Keterangan</string>
+    <string name="x">x</string>
+    <string name="X">X</string>
+    <string name="T">T</string>
+    <string name="Y">Y</string>
     <string name="Registrasi">Registrasi</string>
     <string name="background_silver">background silver</string>
     <string name="logo">logo</string>
     <string name="KolomKosong">Kolom Kosong</string>
-    <string name="Hallo">Hallo</string>
-    <string name="komaspasi">", "</string>
-    <string name="deskripsi">deskripsi</string>
     <string name="SelamatDatangDi">Selamat Datang Di</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="SKOR">SKOR</string>
+    <string name="Rendah">Rendah</string>
+    <string name="Tinggi">Tinggi</string>
+    <string name="s1">1</string>
+    <string name="s2">2</string>
+    <string name="s3">3</string>
+    <string name="s4">4</string>
+    <string name="s5">5</string>
+    <string name="s6">6</string>
+    <string name="s7">7</string>
+    <string name="_1">1</string>
+    <string name="spasi">" "</string>
+
 </resources>

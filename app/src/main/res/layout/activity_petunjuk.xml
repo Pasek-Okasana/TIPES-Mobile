@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".view.user.petunjuk.PetunjukActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/appBar_petunjuk"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        app:elevation="0dp"
+        android:background="@android:color/white">
+        <include
+            android:id="@+id/toolbar_petunjuk"
+            layout="@layout/toolbar_left_default"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        app:tabMode="scrollable"
+        android:id="@+id/tab_layout_petunjuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBar_petunjuk"
+        android:background="@drawable/radius_gradien_tl_and_bl_co_digitalwater_100dp"
+        android:layout_marginStart="40dp"
+        android:paddingStart="24dp"
+        app:tabTextColor="@android:color/background_light"
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabIndicatorColor="@android:color/transparent"/>
+    
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_petunjuk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout_petunjuk"
+        />
+
+
+</RelativeLayout>

@@ -9,11 +9,8 @@
         android:startColor="#ACB6E5"
         android:type="linear" />
 
-<!--    <gradient-->
-<!--        android:angle="0"-->
-<!--        android:endColor="#f37335"-->
-<!--        android:startColor="#fdc830"-->
-<!--        android:type="linear" />-->
-
-
+    <corners
+        android:bottomLeftRadius="100dp"
+        android:topLeftRadius="100dp"
+        />
 </shape>

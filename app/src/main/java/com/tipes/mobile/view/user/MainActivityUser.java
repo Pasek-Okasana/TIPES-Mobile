@@ -1,8 +1,12 @@
 package com.tipes.mobile.view.user;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +16,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityMainUserBinding;
 import com.tipes.mobile.model.MenuDashboardModel;
+import com.tipes.mobile.view.user.petunjuk.PetunjukActivity;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivityUser extends AppCompatActivity {
     private String TAG = MainActivityUser.class.getSimpleName();
@@ -32,14 +40,23 @@ public class MainActivityUser extends AppCompatActivity {
         binding = ActivityMainUserBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        loadDisplayHari();
         tambahDataMenu();
         setMenu();
         onClickItemMenu();
 
-        binding.txtGreeting.setText("Selamat Pagi");
+        // Setting Status Bar Color
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow(); // in Activity's onCreate() for instance
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            }
+        }
+
         binding.txtUsername.setText("Nama Orang");
-        binding.txtTanggal.setText("1 agustus 2020");
     }
 
     private void onClickItemMenu() {
@@ -47,7 +64,23 @@ public class MainActivityUser extends AppCompatActivity {
             @Override
             public void onCardClick(View v, int position) {
                 makeLogI("Berhasil Diclik " + position);
+                switch (position)
+                {
+                    case 0 :
+                        startActivity(new Intent(MainActivityUser.this, PetunjukActivity.class));
+                        break;
+                    case 1 :
+                        makeSnack("Kuisioner");
+                        break;
+                    case 2 :
+                        makeSnack("Nilai");
+                        break;
+                    case 3 :
+                        makeSnack("Akun");
+                        break;
+                }
             }
+
         });
     }
 
@@ -71,6 +104,32 @@ public class MainActivityUser extends AppCompatActivity {
         mMenuList.add(new MenuDashboardModel("Nilai", "Klik IKtem Untuk Melihat Hasil", R.drawable.ic_centang_green_32dp));
         mMenuList.add(new MenuDashboardModel("Akun", "Klik Item Untuk Melihat Informasi Akun & Logout", R.drawable.ic_user_e_32dp));
     }
+
+    private void loadDisplayHari() {
+
+        Locale INDO = new Locale( "in" , "ID" );
+        Calendar cal_item = Calendar.getInstance();
+        String hari_ini = DateFormat.getDateInstance(DateFormat.FULL, INDO).format(cal_item.getTime());
+        int timeOfDay = cal_item.get(Calendar.HOUR_OF_DAY);
+
+        binding.txtTanggal.setText(hari_ini);
+
+        if (timeOfDay <= 5 || timeOfDay > 23 && timeOfDay <= 5){
+            binding.txtGreeting.setText("Selamat Pagi");
+        } else if (timeOfDay > 5 && timeOfDay < 11) {
+            binding.txtGreeting.setText("Selamat Pagi");
+        } else if (timeOfDay >= 11 && timeOfDay <= 15) {
+            binding.txtGreeting.setText("Selamat Siang");
+        }  else if (timeOfDay > 16 && timeOfDay <= 18) {
+            binding.txtGreeting.setText("Selamat Sore");
+        } else if (timeOfDay > 18 && timeOfDay <= 21) {
+            binding.txtGreeting.setText("Selamat Malam");
+        } else if (timeOfDay > 21 && timeOfDay <= 23) {
+            binding.txtGreeting.setText("Selamat Malam");
+        }
+
+    }
+
 
     /**
      ==================== Make Toast
