@@ -114,5 +114,26 @@
     <string name="s7">7</string>
     <string name="_1">1</string>
     <string name="spasi">" "</string>
+    <string name="InformasiAkun">Informasi Akun</string>
+    <string name="IDPendaftaran">ID Pendaftaran</string>
+    <string name="NamaLengkap">Nama Lengkap</string>
+    <string name="AsalSekolah">Asal Sekolah</string>
+    <string name="PilihanJurusan">Pilihan Jurusan</string>
+    <string name="Jurusan1">Jurusan 1</string>
+    <string name="Jurusan2">Jurusan 2</string>
+    <string name="Jurusan3">Jurusan 3</string>
+    <string name="PekerjaanYangDiinginkan">Pekerjaan Yang Diinginkan</string>
+    <string name="Jurusan1titik2">"Jurusan 1 : "</string>
+    <string name="Jurusan2titik2">"Jurusan 2 : "</string>
+    <string name="Jurusan3titik2">"Jurusan 3 : "</string>
+    <string name="REGISTRASI_PERSERTA">REGISTRASI PESERTA</string>
+    <string name="SudahPunyaAkun">Sudah Punya Akun</string>
+    <string name="daftar">daftar</string>
+    <string name="KonfirmasiPassword">Konfirmasi Password</string>
+    <string name="PilihSekolah">Pilih Sekolah</string>
+    <string name="PilihJurusan3">Pilih Jurusan Ketiga</string>
+    <string name="PilihJurusan2">Pilih Jurusan Kedua</string>
+    <string name="PilihJurusan1">Pilih Jurusan Pertama</string>
+    <string name="CariSekolah">Cari Sekolah...</string>
 
 </resources>

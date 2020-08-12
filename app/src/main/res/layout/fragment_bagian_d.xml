@@ -58,6 +58,7 @@
                 />
 
             <HorizontalScrollView
+                android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent">
@@ -80,7 +81,7 @@
 
                     <TextView
                         android:id="@+id/tab_field1"
-                        android:layout_width="220dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/tab_no"
                         android:background="@android:color/holo_blue_light"
@@ -117,7 +118,7 @@
 
                     <TextView
                         android:id="@+id/tab_field1_r2"
-                        android:layout_width="220dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tab_field1"
                         android:layout_toStartOf="@id/tab_field2"
@@ -178,7 +179,7 @@
 
                     <TextView
                         android:id="@+id/tab_field1_r3"
-                        android:layout_width="220dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tab_field1_r2"
                         android:layout_toStartOf="@id/tab_field2"
@@ -305,7 +306,7 @@
 
                     <TextView
                         android:id="@+id/tab_field1_r4"
-                        android:layout_width="220dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tab_field1_r3"
                         android:layout_toStartOf="@id/tab_field2"

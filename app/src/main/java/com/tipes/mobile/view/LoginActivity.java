@@ -10,16 +10,23 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivityLoginBinding;
 import com.tipes.mobile.view.user.MainActivityUser;
+import com.tipes.mobile.viewmodel.ViMoUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private String TAG = LoginActivity.class.getSimpleName();
     private ActivityLoginBinding binding;
+    private SharedPrefManager mSPM;
+    private int role;
+
+    private ViMoUser mVMUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,37 @@ public class LoginActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
 
+        mVMUser = ViewModelProviders.of(this).get(ViMoUser.class);
+
+        mSPM = new SharedPrefManager(LoginActivity.this);
+
+        // Cek Login
+        if (mSPM.getSPRole() > 0)
+        {
+            role = mSPM.getSPRole();
+        }
+
+        // pengecekan apkah sudah login apa belum
+        if (mSPM.getSPStillLogin())
+        {
+            if (role == 2)
+            {
+                startActivity(
+                        new Intent(this, MainActivityUser.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                );
+
+            } else if (role == 1)
+            {
+//                startActivity(
+//                        new Intent(this, BottomNavigationMedisActivity.class)
+//                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+//                );
+
+            }
+            this.finish();
+        }
+
         validasiform();
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -44,13 +82,67 @@ public class LoginActivity extends AppCompatActivity {
                 if (validasiformkosong(username, password))
                 {
                     makeLogI("Click Button");
-                    makeSnack("berhasil bro");
-                    startActivity(new Intent(LoginActivity.this, MainActivityUser.class));
-//                    doLogin(username, password);
+                    doLogin(username, password);
 //                    makeLogD(HelperUtils.encryptPasswordSHA1(password));
                 }
             }
         });
+
+        binding.txtRegistrasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
+    }
+
+    private void doLogin(String username, String password) {
+
+        mVMUser.loginUser(username, password).observe(this, data -> {
+            if (data != null)
+            {
+                int role= 0;
+
+                if (data.getLevel().equals("admin"))
+                {
+                    role = 1;
+                } else if (data.getLevel().equals("mahasiswa"))
+                {
+                    role = 2;
+                }
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), true);
+                mSPM.saveSPString(String.valueOf(R.string.SP_USERNAME_APP), username);
+//                mSPM.saveSPString(String.valueOf(R.string.SP_ID_USER_APP), "12");
+//                mSPM.saveSPString(String.valueOf(R.string.SP_PASSWORD_APP), "enc");
+                mSPM.saveSPInt(String.valueOf(R.string.SP_ROLE_APP), role);
+
+                if (role == 2 )
+                {
+                    startActivity(
+                            new Intent(this, MainActivityUser.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("username", "data.getNama_p()")
+                    );
+                    finish();
+                } else if (role == 1)
+                {
+//            startActivity(
+//                    new Intent(this, BottomNavigationActivity.class)
+//                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+//                            .putExtra("username", data.getNama_p())
+//            );
+                    makeToast("Admin");
+//                    finish();
+                } // if role
+            } else
+            {
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), false);
+                mSPM.saveSPInt(String.valueOf(R.string.SP_ROLE_APP), 0);
+                makeToast("Maaf... Akun Tidak Ditemukan !");
+            }
+        });
+
 
     }
 

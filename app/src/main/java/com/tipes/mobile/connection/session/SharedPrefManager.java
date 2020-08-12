@@ -37,8 +37,8 @@ public class SharedPrefManager {
         return sp.getString(String.valueOf(R.string.SP_USERNAME_APP), "");
     }
 
-    public String getSPRole(){
-        return sp.getString(String.valueOf(R.string.SP_ROLE_APP), "");
+    public int getSPRole(){
+        return sp.getInt(String.valueOf(R.string.SP_ROLE_APP), 0);
     }
 
     public String getSPEmail(){

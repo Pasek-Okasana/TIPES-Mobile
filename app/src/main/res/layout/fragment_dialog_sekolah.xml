@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:background="@drawable/radius_bg_tl_br_white_25dp"
+    tools:context=".view.dialog.DialogSekolahFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <View
+        android:layout_width="400dp"
+        android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        android:text="@string/PilihSekolah"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/btn_search"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_outline_border_green_10dp"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="text"
+        android:textColor="@android:color/black"
+        android:hint="@string/CariSekolah"
+        android:importantForAutofill="no" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_dialog"
+        android:layout_width="320dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+</LinearLayout>

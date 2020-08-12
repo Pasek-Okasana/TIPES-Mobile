@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityMainUserBinding;
 import com.tipes.mobile.model.MenuDashboardModel;
+import com.tipes.mobile.view.user.akun.AkunActivity;
 import com.tipes.mobile.view.user.petunjuk.PetunjukActivity;
 
 import java.text.DateFormat;
@@ -76,7 +77,7 @@ public class MainActivityUser extends AppCompatActivity {
                         makeSnack("Nilai");
                         break;
                     case 3 :
-                        makeSnack("Akun");
+                        startActivity(new Intent(MainActivityUser.this, AkunActivity.class));
                         break;
                 }
             }

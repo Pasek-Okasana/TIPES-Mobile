@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registercontainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.LoginActivity">
+    tools:context=".view.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,6 +67,7 @@
         >
         <LinearLayout
             android:layout_marginTop="241dp"
+            android:layout_marginBottom="?android:attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/radius_bg_top_white_25dp"
@@ -76,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/LOGIN_PERSERTA"
+                android:text="@string/REGISTRASI_PERSERTA"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"
@@ -94,7 +96,93 @@
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/Username"
                 android:autofillHints=""
-                android:inputType="text" />
+                android:inputType="text"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/in_txt_nama_lengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/NamaLengkap"
+                android:autofillHints=""
+                android:inputType="text"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/in_txt_pekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/PekerjaanYangDiinginkan"
+                android:autofillHints=""
+                android:inputType="text"
+                android:textSize="16sp"/>
+
+
+            <TextView
+                android:id="@+id/txt_sekolah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_right_gray_24dp"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/PilihSekolah"
+                android:autofillHints=""/>
+
+            <TextView
+                android:id="@+id/txt_jurusan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_right_gray_24dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/PilihJurusan1"
+                android:autofillHints=""
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txt_jurusan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_right_gray_24dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/PilihJurusan2"
+                android:autofillHints=""
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txt_jurusan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_right_gray_24dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/PilihJurusan3"
+                android:autofillHints=""
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/in_txt_password"
@@ -107,17 +195,32 @@
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/Password"
                 android:inputType="textPassword"
-                android:autofillHints="" />
+                android:autofillHints=""
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/in_txt_password_konfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/radius_outline_border_gray_10dp"
+                android:hint="@string/KonfirmasiPassword"
+                android:inputType="textPassword"
+                android:autofillHints=""
+                android:textSize="16sp"/>
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/radius_bg_all_blue_10dp"
-                android:text="@string/LOGIN"
+                android:text="@string/daftar"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"/>
 
@@ -126,11 +229,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
                 android:layout_gravity="center"
-                android:text="@string/Registrasi"
+                android:text="@string/SudahPunyaAkun"
                 android:textColor="@color/colorBlue0099ff"
                 android:textSize="18sp"
                 android:textStyle="bold"/>

@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/appBar_petunjuk"
-        android:background="@drawable/radius_gradien_tl_and_bl_co_digitalwater_100dp"
+        android:background="@drawable/radius_gradien_tl_bl_co_radar"
         android:layout_marginStart="40dp"
         android:paddingStart="24dp"
         app:tabTextColor="@android:color/background_light"

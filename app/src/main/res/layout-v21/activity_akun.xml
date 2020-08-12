@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".view.user.akun.AkunActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/appBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:elevation="0dp"
+        android:background="@drawable/gradien_co_radar">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_left_default"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/gradien_co_radar"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:text="@string/InformasiAkun"
+            />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:orientation="vertical"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/radius_bg_top_white_25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/IDPendaftaran"
+                android:layout_marginTop="24dp"
+                />
+            <TextView
+                android:id="@+id/txt_id_pendaftaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:background="@drawable/radius_bg_tl_br_white_25dp"
+                android:backgroundTint="@color/colorUnguCF8BF3"
+                android:padding="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text=""
+                tools:targetApi="lollipop"/>
+            <!--  TODO Nama Lengkap           -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/NamaLengkap"
+                android:layout_marginTop="16dp"
+                />
+            <TextView
+                android:id="@+id/txt_nama_lengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:background="@drawable/radius_bg_tl_br_white_25dp"
+                android:backgroundTint="@color/colorUnguCF8BF3"
+                android:padding="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text=""
+                tools:targetApi="lollipop"/>
+
+            <!--  TODO Asal Sekolah           -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/AsalSekolah"
+                android:layout_marginTop="16dp"
+                />
+            <TextView
+                android:id="@+id/txt_asal_sekolah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:background="@drawable/radius_bg_tl_br_white_25dp"
+                android:backgroundTint="@color/colorUnguCF8BF3"
+                android:padding="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text=""
+                tools:targetApi="lollipop"/>
+
+            <!--  TODO Pilih Jurusan          -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/PilihanJurusan"
+                android:layout_marginTop="16dp"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/radius_bg_tl_br_white_25dp"
+                android:backgroundTint="@color/colorUnguCF8BF3" tools:targetApi="lollipop">
+
+                <!--  TODO Jurusan 1         -->
+                <TextView
+                    android:id="@+id/txt_ket_jur1"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text="@string/Jurusan1titik2"/>
+                <TextView
+                    android:id="@+id/txt_jurusan1"
+                    android:layout_toEndOf="@id/txt_ket_jur1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text=""/>
+
+                <!--  TODO Jurusan 2         -->
+                <TextView
+                    android:id="@+id/txt_ket_jur2"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/txt_ket_jur1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text="@string/Jurusan2titik2"/>
+                <TextView
+                    android:id="@+id/txt_jurusan2"
+                    android:layout_toEndOf="@id/txt_ket_jur1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/txt_jurusan1"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text=""/>
+
+                <!--  TODO Jurusan 3         -->
+                <TextView
+                    android:id="@+id/txt_ket_jur3"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/txt_ket_jur2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text="@string/Jurusan3titik2"/>
+                <TextView
+                    android:id="@+id/txt_jurusan3"
+                    android:layout_toEndOf="@id/txt_ket_jur1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/txt_jurusan2"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text=""/>
+
+
+            </RelativeLayout>
+
+
+            <!--  TODO Pilih Jurusan          -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="@string/PekerjaanYangDiinginkan"
+                android:layout_marginTop="16dp"
+                />
+            <TextView
+                android:id="@+id/txt_pekerjaandiinginkan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:background="@drawable/radius_bg_tl_br_white_25dp"
+                android:backgroundTint="@color/colorUnguCF8BF3"
+                android:padding="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:text=""
+                tools:targetApi="lollipop"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,22 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tipes.mobile">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".view.user.petunjuk.PetunjukActivity"
-            android:theme="@style/AppThemeNoBar">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
-        </activity>
+        <activity android:name=".view.RegisterActivity"
+            android:theme="@style/AppThemeNoBar"></activity>
+        <activity
+            android:name=".view.user.akun.AkunActivity"
+            android:theme="@style/AppThemeNoBar" />
+        <activity
+            android:name=".view.user.petunjuk.PetunjukActivity"
+            android:theme="@style/AppThemeNoBar" />
         <activity
             android:name=".view.user.MainActivityUser"
-            android:theme="@style/AppTheme.ActionBar.Transparent">
-
-        </activity>
+            android:theme="@style/AppTheme.ActionBar.Transparent" />
         <activity
             android:name=".view.LoginActivity"
             android:theme="@style/AppThemeNoBar">
