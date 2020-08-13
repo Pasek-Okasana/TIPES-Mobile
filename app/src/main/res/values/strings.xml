@@ -80,6 +80,19 @@
     <string name="BagianD_Keterangan3">Pilihan skor 1 di atas berarti anda menilai diri anda memiliki keahlian / bakat yang sangat rendah untuk menjadi pemancing atau penangkap ika/ nelayan.</string>
     <string name="BagianD_Keterangan4">Waktu yang disediakan untuk anda menjawab pertanyaan soal no. 211 s/d 216 berikut ini adalah selama 5 menit.</string>
 
+    <!--  TODO : JURUSAN    -->
+    <string name="IDJurusan">ID Jurusan</string>
+    <string name="Jurusan1">Jurusan 1</string>
+    <string name="Jurusan2">Jurusan 2</string>
+    <string name="Jurusan3">Jurusan 3</string>
+    <string name="Jurusan1titik2">"Jurusan 1 : "</string>
+    <string name="Jurusan2titik2">"Jurusan 2 : "</string>
+    <string name="Jurusan3titik2">"Jurusan 3 : "</string>
+    <string name="PilihJurusan3">Pilih Jurusan Ketiga</string>
+    <string name="PilihJurusan2">Pilih Jurusan Kedua</string>
+    <string name="PilihJurusan1">Pilih Jurusan Pertama</string>
+    <string name="PilihanJurusan">Pilihan Jurusan</string>
+
     <!--  String Apps -->
     <string name="app_name">TIPES Mobile</string>
     <string name="TIPES">TIPES</string>
@@ -118,24 +131,19 @@
     <string name="IDPendaftaran">ID Pendaftaran</string>
     <string name="NamaLengkap">Nama Lengkap</string>
     <string name="AsalSekolah">Asal Sekolah</string>
-    <string name="PilihanJurusan">Pilihan Jurusan</string>
-    <string name="Jurusan1">Jurusan 1</string>
-    <string name="Jurusan2">Jurusan 2</string>
-    <string name="Jurusan3">Jurusan 3</string>
     <string name="PekerjaanYangDiinginkan">Pekerjaan Yang Diinginkan</string>
-    <string name="Jurusan1titik2">"Jurusan 1 : "</string>
-    <string name="Jurusan2titik2">"Jurusan 2 : "</string>
-    <string name="Jurusan3titik2">"Jurusan 3 : "</string>
     <string name="REGISTRASI_PERSERTA">REGISTRASI PESERTA</string>
     <string name="SudahPunyaAkun">Sudah Punya Akun</string>
     <string name="daftar">daftar</string>
     <string name="KonfirmasiPassword">Konfirmasi Password</string>
     <string name="PilihSekolah">Pilih Sekolah</string>
-    <string name="PilihJurusan3">Pilih Jurusan Ketiga</string>
-    <string name="PilihJurusan2">Pilih Jurusan Kedua</string>
-    <string name="PilihJurusan1">Pilih Jurusan Pertama</string>
     <string name="CariSekolah">Cari Sekolah...</string>
     <string name="MaafJaringanSibuk">Maaf Jaringan Sibuk ! Cobalah Beberapa Saat Lagi...</string>
     <string name="Carititiktitik">Cari...</string>
+    <string name="IDSekolah">ID Sekolah</string>
+    <string name="ListJurusan">List Jurusan</string>
+    <string name="MaafTidakDitemukan">Maaf... Data Tidak Ditemukan !</string>
+    <string name="TidakMemilih">Tidak Memilih</string>
+    <string name="Position">Position</string>
 
 </resources>

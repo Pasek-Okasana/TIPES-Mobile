@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.tipes.mobile.connection.networkapi.ClientGetRetrofit;
 import com.tipes.mobile.connection.networkapi.SekolahEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
+import com.tipes.mobile.model.sekolah.ModelJurusan;
 import com.tipes.mobile.model.sekolah.ModelSekolah;
 
 import retrofit2.Call;
@@ -49,6 +50,33 @@ public class RepoSekolah {
 
                     @Override
                     public void onFailure(Call<ModelSekolah> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogI("Status Repo Log = OnFailure" );
+                    }
+                });
+
+        return data;
+    }
+    public LiveData<ModelJurusan> getJurusan()
+    {
+        final MutableLiveData<ModelJurusan> data = new MutableLiveData<>();
+        mServiceUserEP.getJurusan()
+                .enqueue(new Callback<ModelJurusan>() {
+                    @Override
+                    public void onResponse(Call<ModelJurusan> call, Response<ModelJurusan> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelJurusan> call, Throwable t) {
                         data.setValue(null);
                         makeLogI("Status Repo Log = OnFailure" );
                     }

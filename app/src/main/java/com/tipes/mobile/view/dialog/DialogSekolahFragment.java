@@ -95,11 +95,10 @@ public class DialogSekolahFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.txtKeterangan.setVisibility(View.INVISIBLE);
-        binding.txtNoContent.setVisibility(View.GONE);
 
         mList = new ArrayList<>();
         mList2 = new ArrayList<>();
-        mAdapter = new DialogSekolahAdapter(mList, mList);
+        mAdapter = new DialogSekolahAdapter(mList);
         mLayoutManager = new LinearLayoutManager(getActivity());
         binding.recyclerDialog.setHasFixedSize(true);
 
@@ -147,7 +146,7 @@ public class DialogSekolahFragment extends DialogFragment {
                 } else
                 {
                     binding.txtKeterangan.setVisibility(View.VISIBLE);
-                    binding.txtKeterangan.setText("Maaf, Data Masih Kosong !");
+                    binding.txtKeterangan.setText(getString(R.string.MaafTidakDitemukan));
                 }
 
 

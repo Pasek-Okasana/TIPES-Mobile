@@ -10,36 +10,41 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tipes.mobile.databinding.ItemDialogListCenterTopBinding;
-import com.tipes.mobile.model.sekolah.ModelSekolahList;
+import com.tipes.mobile.model.sekolah.ModelJurusanList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DialogSekolahAdapter extends RecyclerView.Adapter<DialogSekolahAdapter.MainHolder> implements Filterable {
-    private List<ModelSekolahList> mList, mListFilter;
+public class DialogJurusanAdapter extends RecyclerView.Adapter<DialogJurusanAdapter.MainHolderJ> implements Filterable {
+    private List<ModelJurusanList> mList, mListFilter;
     private static ClickListener clickListener;
+    private int pilihanjurusan;
 
-    public DialogSekolahAdapter(List<ModelSekolahList> mList) {
+    public DialogJurusanAdapter(List<ModelJurusanList> mList , int pilihanjurusan) {
         this.mList = mList;
         mListFilter = mList;
+        this.pilihanjurusan = pilihanjurusan;
     }
 
     @NonNull
     @Override
-    public MainHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MainHolderJ onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ItemDialogListCenterTopBinding binding = ItemDialogListCenterTopBinding.inflate(layoutInflater, parent , false);
-        return new MainHolder(binding);
+        return new MainHolderJ(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainHolder holder, int position) {
-        ModelSekolahList data = mListFilter.get(position);
-        holder.mBinding.txtIsi.setText(data.getNamaSekolah());
+    public void onBindViewHolder(@NonNull MainHolderJ holder, int position) {
+        ModelJurusanList data = mListFilter.get(position);
+        holder.mBinding.txtIsi.setText(data.getNamaJurusan());
 
-        if (position == 0)
+        if (pilihanjurusan == 1)
         {
-            holder.mBinding.viewTop.setVisibility(View.INVISIBLE);
+            if (position == 0)
+            {
+                holder.mBinding.viewTop.setVisibility(View.INVISIBLE);
+            }
         }
 
     }
@@ -55,7 +60,15 @@ public class DialogSekolahAdapter extends RecyclerView.Adapter<DialogSekolahAdap
         }
     }
 
-    public ModelSekolahList getItemPosition(int position)
+    public void removeAts(int position) {
+        mList.remove(position);
+        notifyItemRemoved(position);
+//        notifyItemChanged(position);
+//        notifyItemRangeRemoved(position, mList.size());
+        notifyItemRangeChanged(position, mList.size());
+    }
+
+    public ModelJurusanList getItemPosition(int position)
     {
         return mListFilter.get(position);
     }
@@ -69,12 +82,12 @@ public class DialogSekolahAdapter extends RecyclerView.Adapter<DialogSekolahAdap
                 if (charString.isEmpty()) {
                     mListFilter = mList;
                 } else {
-                    List<ModelSekolahList> filteredList = new ArrayList<>();
-                    for (ModelSekolahList row : mList) {
+                    List<ModelJurusanList> filteredList = new ArrayList<>();
+                    for (ModelJurusanList row : mList) {
 
                         // name match condition. this might differ depending on your requirement
                         // here we are looking for name or phone number match
-                        if (row.getNamaSekolah().toLowerCase().contains(charString.toLowerCase()) ) {
+                        if (row.getNamaJurusan().toLowerCase().contains(charString.toLowerCase()) ) {
                             filteredList.add(row);
                         }
                     }
@@ -89,15 +102,15 @@ public class DialogSekolahAdapter extends RecyclerView.Adapter<DialogSekolahAdap
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                mListFilter = (ArrayList<ModelSekolahList>) filterResults.values;
+                mListFilter = (ArrayList<ModelJurusanList>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
     }
 
-    public class MainHolder extends RecyclerView.ViewHolder {
+    public class MainHolderJ extends RecyclerView.ViewHolder {
         private ItemDialogListCenterTopBinding mBinding;
-        public MainHolder(@NonNull ItemDialogListCenterTopBinding itemView) {
+        public MainHolderJ(@NonNull ItemDialogListCenterTopBinding itemView) {
             super(itemView.getRoot());
             mBinding = itemView;
 
@@ -119,11 +132,11 @@ public class DialogSekolahAdapter extends RecyclerView.Adapter<DialogSekolahAdap
      ===================================================================
      **/
     public void setOnItemClickListener(ClickListener clickListener) {
-        DialogSekolahAdapter.clickListener = clickListener;
+        DialogJurusanAdapter.clickListener = clickListener;
     }
 
     public interface ClickListener {
-        void onItemClick(View v, int position, List<ModelSekolahList> mList);
+        void onItemClick(View v, int position, List<ModelJurusanList> mList);
     }
 
 }

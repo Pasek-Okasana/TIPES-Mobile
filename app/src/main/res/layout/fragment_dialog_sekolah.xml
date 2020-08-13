@@ -46,19 +46,6 @@
            android:hint="@string/Carititiktitik"
            android:importantForAutofill="no" />
 
-       <TextView
-           android:id="@+id/txt_no_content"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center_horizontal"
-           android:gravity="center"
-           android:padding="16dp"
-           android:layout_marginStart="16dp"
-           android:layout_marginEnd="16dp"
-           android:textSize="15sp"
-           android:textColor="@android:color/black"
-           />
-
        <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/recycler_dialog"
            android:layout_width="320dp"
