@@ -97,7 +97,8 @@
                 android:hint="@string/Username"
                 android:autofillHints=""
                 android:inputType="text"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="@android:color/black"/>
 
             <EditText
                 android:id="@+id/in_txt_nama_lengkap"
@@ -111,7 +112,8 @@
                 android:hint="@string/NamaLengkap"
                 android:autofillHints=""
                 android:inputType="text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
 
             <EditText
                 android:id="@+id/in_txt_pekerjaan"
@@ -135,12 +137,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:drawableEnd="@drawable/ic_right_gray_24dp"
                 android:padding="16dp"
                 android:textSize="16sp"
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/PilihSekolah"
-                android:autofillHints=""/>
+                android:autofillHints=""
+                android:textColor="@android:color/black"
+                app:drawableEndCompat="@drawable/ic_right_gray_24dp" />
 
             <TextView
                 android:id="@+id/txt_jurusan1"
@@ -149,12 +152,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:drawableEnd="@drawable/ic_right_gray_24dp"
                 android:padding="16dp"
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/PilihJurusan1"
                 android:autofillHints=""
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_right_gray_24dp"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/txt_jurusan2"
@@ -163,12 +167,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:drawableEnd="@drawable/ic_right_gray_24dp"
                 android:padding="16dp"
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/PilihJurusan2"
                 android:autofillHints=""
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_right_gray_24dp"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:id="@+id/txt_jurusan3"
@@ -177,12 +182,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:drawableEnd="@drawable/ic_right_gray_24dp"
                 android:padding="16dp"
                 android:background="@drawable/radius_outline_border_gray_10dp"
                 android:hint="@string/PilihJurusan3"
                 android:autofillHints=""
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_right_gray_24dp"
+                android:textColor="@android:color/black"/>
 
             <EditText
                 android:id="@+id/in_txt_password"
@@ -196,7 +202,8 @@
                 android:hint="@string/Password"
                 android:inputType="textPassword"
                 android:autofillHints=""
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="@android:color/black"/>
 
             <EditText
                 android:id="@+id/in_txt_password_konfirm"
@@ -210,7 +217,8 @@
                 android:hint="@string/KonfirmasiPassword"
                 android:inputType="textPassword"
                 android:autofillHints=""
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="@android:color/black"/>
 
             <Button
                 android:id="@+id/btn_login"

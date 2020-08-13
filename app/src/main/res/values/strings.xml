@@ -135,5 +135,7 @@
     <string name="PilihJurusan2">Pilih Jurusan Kedua</string>
     <string name="PilihJurusan1">Pilih Jurusan Pertama</string>
     <string name="CariSekolah">Cari Sekolah...</string>
+    <string name="MaafJaringanSibuk">Maaf Jaringan Sibuk ! Cobalah Beberapa Saat Lagi...</string>
+    <string name="Carititiktitik">Cari...</string>
 
 </resources>

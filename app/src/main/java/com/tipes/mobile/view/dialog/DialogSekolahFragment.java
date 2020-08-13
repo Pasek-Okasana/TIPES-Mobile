@@ -1,6 +1,9 @@
 package com.tipes.mobile.view.dialog;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +35,7 @@ public class DialogSekolahFragment extends DialogFragment {
 
     private ViMoSekolah mVimoSekolah;
 
-    private List<ModelSekolahList> mList;
+    private List<ModelSekolahList> mList, mList2;
     private DialogSekolahAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;
 
@@ -83,14 +86,20 @@ public class DialogSekolahFragment extends DialogFragment {
         View view = binding.getRoot();
 
         mVimoSekolah = ViewModelProviders.of(this).get(ViMoSekolah.class);
+        binding.txtTopKetDialog.setText(getString(R.string.PilihSekolah));
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.txtKeterangan.setVisibility(View.INVISIBLE);
+        binding.txtNoContent.setVisibility(View.GONE);
+
         mList = new ArrayList<>();
-        mAdapter = new DialogSekolahAdapter(mList);
+        mList2 = new ArrayList<>();
+        mAdapter = new DialogSekolahAdapter(mList, mList);
         mLayoutManager = new LinearLayoutManager(getActivity());
         binding.recyclerDialog.setHasFixedSize(true);
 
@@ -100,22 +109,68 @@ public class DialogSekolahFragment extends DialogFragment {
         mVimoSekolah.getSekolah().observe(getViewLifecycleOwner(), data -> {
             if (data != null)
             {
+                binding.txtKeterangan.setVisibility(View.INVISIBLE);
                 mList.clear();
                 mList.addAll(data.getSekolahList());
                 mAdapter.notifyDataSetChanged();
+            } else
+            {
+                binding.recyclerDialog.setVisibility(View.INVISIBLE);
+                binding.txtKeterangan.setVisibility(View.VISIBLE);
+                binding.txtKeterangan.setText(getString(R.string.MaafJaringanSibuk));
             }
         });
 
+
+
+        setFilterData();
+        setOnClick();
+//        makeToast(mParam1);
+    }
+
+    private void setFilterData() {
+        binding.inTxtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mAdapter.getFilter().filter(charSequence);
+                mAdapter.notifyDataSetChanged();
+                int countlist = mAdapter.getItemCount();
+                if (countlist > 0)
+                {
+                    binding.txtKeterangan.setVisibility(View.INVISIBLE);
+
+                } else
+                {
+                    binding.txtKeterangan.setVisibility(View.VISIBLE);
+                    binding.txtKeterangan.setText("Maaf, Data Masih Kosong !");
+                }
+
+
+//                makeLogI(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+    }
+
+    private void setOnClick() {
         mAdapter.setOnItemClickListener(new DialogSekolahAdapter.ClickListener() {
             @Override
             public void onItemClick(View v, int position, List<ModelSekolahList> mList) {
-//                listener = (RegisterOnClickListener) getActivity();
+                listener = (RegisterOnClickListener) getActivity();
                 listener.onItemPilihSekolahClick(position, mList);
                 dismiss();
             }
         });
-
-//        makeToast(mParam1);
     }
 
     /**
@@ -130,5 +185,10 @@ public class DialogSekolahFragment extends DialogFragment {
     private void makeToast(String msg)
     {
         Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+    private void makeLogI(String msg)
+    {
+        Log.i("Dialog Sekolah ", msg);
     }
 }
