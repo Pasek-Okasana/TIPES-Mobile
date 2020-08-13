@@ -145,5 +145,6 @@
     <string name="MaafTidakDitemukan">Maaf... Data Tidak Ditemukan !</string>
     <string name="TidakMemilih">Tidak Memilih</string>
     <string name="Position">Position</string>
+    <string name="PasswordTidakCocok">Password Tidak Cocok</string>
 
 </resources>

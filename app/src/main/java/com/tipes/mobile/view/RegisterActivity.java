@@ -3,6 +3,8 @@ package com.tipes.mobile.view;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -41,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         setContentView(view);
 
         getWindow().setStatusBarColor(R.color.colorGray);
-
+        validasiKolomAuto();
         onClickButtonJurusan();
 
     }
@@ -113,10 +115,243 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
                 }
             }
         });
+
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validasiKolomKosong() && validasiMatchPassword()){
+
+                }
+            }
+        });
+    }
+
+
+    /**
+     ======== VALIDASI DATA ===========
+     */
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private boolean validasiKolomKosong() {
+        int leghtUsr, leghtNamLeng, leghtPkerja, leghtSklh, leghtJur1, leghtJur2, leghtJur3, leghtPass, leghtPassKom;
+        leghtUsr = binding.inTxtUsername.length();
+        leghtNamLeng = binding.inTxtNamaLengkap.length();
+        leghtPkerja = binding.inTxtPekerjaan.length();
+        leghtSklh = binding.txtSekolah.length();
+        leghtJur1 = binding.txtJurusan1.length();
+        leghtJur2 = binding.txtJurusan2.length();
+        leghtJur3 = binding.txtJurusan3.length();
+        leghtPass = binding.inTxtPassword.length();
+        leghtPassKom = binding.inTxtPasswordKonfirm.length();
+
+        if (leghtUsr < 1){
+            binding.inTxtUsername.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.inTxtUsername.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtNamLeng < 1)
+        {
+            binding.inTxtNamaLengkap.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.inTxtNamaLengkap.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtPkerja < 1){
+            binding.inTxtPekerjaan.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.inTxtPekerjaan.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtSklh < 1){
+            binding.txtSekolah.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.txtSekolah.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtJur1 < 1){
+            binding.txtJurusan1.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.txtJurusan1.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtJur2 < 1){
+            binding.txtJurusan2.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.txtJurusan2.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtJur3 < 1){
+            binding.txtJurusan3.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.txtJurusan3.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtPass < 1){
+            binding.inTxtPassword.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.inTxtPassword.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtPassKom < 1){
+            binding.inTxtPasswordKonfirm.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+        } else {
+            binding.inTxtPasswordKonfirm.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+        }
+
+        if (leghtUsr < 1 || leghtNamLeng < 1 || leghtPkerja < 1 || leghtSklh < 1 || leghtJur1 < 1 || leghtJur2 < 1 || leghtJur3 < 1 || leghtPass < 1 || leghtPassKom < 1 )
+        {
+            return false;
+        } else return true;
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private boolean validasiMatchPassword() {
+        String psswd, psswdkonfirm;
+        psswd = binding.inTxtPassword.getText().toString();
+        psswdkonfirm = binding.inTxtPasswordKonfirm.getText().toString();
+
+        if (!psswdkonfirm.equals(psswd)){
+            binding.inTxtPasswordKonfirm.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_red_10dp
+                            )
+            );
+//            makeSnack(getResources().getString(R.string.PasswordTidakCocok));
+            binding.inTxtPasswordKonfirm.setError(getResources().getString(R.string.PasswordTidakCocok));
+            return false;
+        } else {
+            binding.inTxtPasswordKonfirm.setBackground(
+                    getResources()
+                            .getDrawable(
+                                    R.drawable.radius_outline_border_gray_10dp
+                            )
+            );
+            return  true;
+        }
+    }
+
+    private void validasiKolomAuto()
+    {
+        binding.inTxtPasswordKonfirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 2)
+                {
+                    binding.inTxtPasswordKonfirm.setBackground(
+                            getResources()
+                                    .getDrawable(
+                                            R.drawable.radius_outline_border_gray_10dp
+                                    )
+                    );
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     /**
-        ======== IMPLEMENT REGISTER ON CLICK LISTENER
+        ======== IMPLEMENT REGISTER ON CLICK LISTENER ===========
      */
 
     @Override
@@ -171,6 +406,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             binding.txtJurusan3.setText(mList.get(position).getNamaJurusan());
         }
     }
+
+    //-===============================================================================
 
     private void makeSnack(String msg){
         Snackbar snackbar1 = Snackbar
