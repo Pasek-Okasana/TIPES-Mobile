@@ -28,8 +28,7 @@ import java.util.List;
 public class RegisterActivity extends AppCompatActivity implements RegisterOnClickListener {
     private ActivityRegisterBinding binding;
     private String sIDSekolah;
-    private int sPositionJur1, sPositionJur2, sPositionJur3;
-    private List<ModelSekolahList> mListSekolah = new ArrayList<>();
+    private int sPositionJur1, sPositionJur2;
     private List<ModelJurusanList> mListJurusan = new ArrayList<>();
     private List<ModelJurusanList> mListJurusan2 = new ArrayList<>();
 
@@ -49,10 +48,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
     }
 
     private void onClickButtonJurusan() {
-        String isiJur1, isiJur2, isiJur3;
-
-        isiJur2 = binding.txtJurusan2.getText().toString();
-        isiJur3 = binding.txtJurusan3.getText().toString();
 
         binding.txtSekolah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,10 +115,24 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             @Override
             public void onClick(View view) {
                 if (validasiKolomKosong() && validasiMatchPassword()){
-
+//                    makeSnack("Berhasil Bro");
+                    doRegister();
                 }
             }
         });
+    }
+
+    private void doRegister() {
+        String leghtUsr, leghtNamLeng, leghtPkerja, leghtSklh, leghtJur1, leghtJur2, leghtJur3, leghtPass, leghtPassKom;
+        leghtUsr = binding.inTxtUsername.getText().toString();
+        leghtNamLeng = binding.inTxtNamaLengkap.getText().toString();
+        leghtPkerja = binding.inTxtPekerjaan.getText().toString();
+        leghtSklh = binding.txtSekolah.getText().toString();
+        leghtJur1 = binding.txtJurusan1.getText().toString();
+        leghtJur2 = binding.txtJurusan2.getText().toString();
+        leghtJur3 = binding.txtJurusan3.getText().toString();
+        leghtPass = binding.inTxtPassword.getText().toString();
+        leghtPassKom = binding.inTxtPasswordKonfirm.getText().toString();
     }
 
 
@@ -330,6 +339,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
 
             }
 
+            @SuppressLint("UseCompatLoadingForDrawables")
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 2)
@@ -359,13 +369,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
 //        makeToast(mList.get(position).getIdSekolah());
         binding.txtSekolah.setText(mList.get(position).getNamaSekolah());
         sIDSekolah = mList.get(position).getIdSekolah();
-        this.mListSekolah = mList;
-
         // TODO : Setting Pilihan Jurusan Kosong
         binding.txtJurusan1.setText("");
         binding.txtJurusan2.setText("");
         binding.txtJurusan3.setText("");
-
     }
 
     @Override
