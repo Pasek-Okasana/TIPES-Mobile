@@ -1,10 +1,14 @@
 package com.tipes.mobile.connection.networkapi;
 
 import com.tipes.mobile.model.ModelLogin;
+import com.tipes.mobile.model.ModelMain;
 import com.tipes.mobile.model.akun.ModelAkun;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -20,6 +24,13 @@ public interface UserEndPoint {
     Call<ModelAkun> getMyAkun(
             @Path("username") String username
     );
+
+    @FormUrlEncoded
+    @POST("api/register")
+    Call<ModelMain> registrasiUser(
+            @FieldMap Map<String, String> parameter
+    );
+
 //    @FormUrlEncoded
 //    @POST("user/auth/activate")
 //    Call<ModelAuth> activationAccount(@Field("idusr") String idusr,

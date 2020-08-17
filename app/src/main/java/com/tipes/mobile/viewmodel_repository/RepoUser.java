@@ -10,7 +10,10 @@ import com.tipes.mobile.connection.networkapi.ClientGetRetrofit;
 import com.tipes.mobile.connection.networkapi.UserEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.model.ModelLogin;
+import com.tipes.mobile.model.ModelMain;
 import com.tipes.mobile.model.akun.ModelAkun;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,6 +80,33 @@ public class RepoUser {
 
                     @Override
                     public void onFailure(Call<ModelAkun> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogE("Status Repo Log = onFailure" );
+                    }
+                });
+        return data;
+    }
+
+    public LiveData<ModelMain> registerUser(Map<String, String> parameter)
+    {
+        final MutableLiveData<ModelMain> data = new MutableLiveData<>();
+        mServiceUserEP.registrasiUser(parameter)
+                .enqueue(new Callback<ModelMain>() {
+                    @Override
+                    public void onResponse(Call<ModelMain> call, Response<ModelMain> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelMain> call, Throwable t) {
                         data.setValue(null);
                         makeLogE("Status Repo Log = onFailure" );
                     }

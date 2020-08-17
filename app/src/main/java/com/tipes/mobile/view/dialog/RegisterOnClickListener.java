@@ -1,5 +1,6 @@
 package com.tipes.mobile.view.dialog;
 
+import com.tipes.mobile.model.ModelJenisKelamin;
 import com.tipes.mobile.model.sekolah.ModelJurusanList;
 import com.tipes.mobile.model.sekolah.ModelSekolahList;
 
@@ -10,4 +11,5 @@ public interface RegisterOnClickListener {
     void onItemPilihJurusan1(int position, List<ModelJurusanList> mList);
     void onItemPilihJurusan2(int position, List<ModelJurusanList> mList, boolean tidakmemilih);
     void onItemPilihJurusan3(int position, List<ModelJurusanList> mList, boolean tidakmemilih);
+    void onItemPilihJK(int position, List<ModelJenisKelamin> mList);
 }

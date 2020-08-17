@@ -9,6 +9,11 @@
         <item name="Sunday">Saturday</item>
     </string-array>
 
+    <string-array name="jk_array">
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
     <!--    String Session Shared   -->
     <string name="SP_FOR_LOGIN_APP">spLoginApp</string>
     <string name="SP_USERNAME_APP">spUsernameApp</string>
@@ -146,5 +151,9 @@
     <string name="TidakMemilih">Tidak Memilih</string>
     <string name="Position">Position</string>
     <string name="PasswordTidakCocok">Password Tidak Cocok</string>
+    <string name="JenisKelamin">Jenis Kelamin</string>
+    <string name="PilihanJenisKelamin">Pilih Jenis Kelamin</string>
+    <string name="LakiLaki">Laki-Laki</string>
+    <string name="Perempuan">Perempuan</string>
 
 </resources>

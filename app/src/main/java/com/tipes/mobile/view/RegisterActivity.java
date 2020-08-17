@@ -12,25 +12,32 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityRegisterBinding;
+import com.tipes.mobile.model.ModelJenisKelamin;
 import com.tipes.mobile.model.sekolah.ModelJurusanList;
 import com.tipes.mobile.model.sekolah.ModelSekolahList;
+import com.tipes.mobile.view.dialog.DialogJenisKelaminFragment;
 import com.tipes.mobile.view.dialog.DialogJurusanFragment;
 import com.tipes.mobile.view.dialog.DialogSekolahFragment;
 import com.tipes.mobile.view.dialog.RegisterOnClickListener;
+import com.tipes.mobile.viewmodel.ViMoUser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterOnClickListener {
     private ActivityRegisterBinding binding;
-    private String sIDSekolah;
+    private String sIDSekolah, sIDJurusan1, sIDJurusan2, sIDJurusan3, sIDJk;
     private int sPositionJur1, sPositionJur2;
     private List<ModelJurusanList> mListJurusan = new ArrayList<>();
     private List<ModelJurusanList> mListJurusan2 = new ArrayList<>();
+    private ViMoUser mViModelUser;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("ResourceAsColor")
@@ -40,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        mViModelUser = ViewModelProviders.of(this).get(ViMoUser.class);
 
         getWindow().setStatusBarColor(R.color.colorGray);
         validasiKolomAuto();
@@ -111,6 +119,15 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             }
         });
 
+        binding.txtJenisKelamin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                DialogJenisKelaminFragment djk = new DialogJenisKelaminFragment();
+                djk.show(fm, "Dialog Jenis Kelamin");
+            }
+        });
+
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,12 +144,30 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         leghtUsr = binding.inTxtUsername.getText().toString();
         leghtNamLeng = binding.inTxtNamaLengkap.getText().toString();
         leghtPkerja = binding.inTxtPekerjaan.getText().toString();
-        leghtSklh = binding.txtSekolah.getText().toString();
-        leghtJur1 = binding.txtJurusan1.getText().toString();
-        leghtJur2 = binding.txtJurusan2.getText().toString();
-        leghtJur3 = binding.txtJurusan3.getText().toString();
         leghtPass = binding.inTxtPassword.getText().toString();
         leghtPassKom = binding.inTxtPasswordKonfirm.getText().toString();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("username", leghtUsr);
+        parameter.put("password", leghtPass);
+        parameter.put("level","mahasiswa" );
+        parameter.put("jenis_kelamin", sIDJk);
+        parameter.put("nama_lengkap", leghtNamLeng);
+        parameter.put("jurusan", sIDJurusan1);
+        parameter.put("jurusan2", sIDJurusan2 );
+        parameter.put("jurusan3", sIDJurusan3 );
+        parameter.put("asal_sekolah", sIDSekolah);
+        parameter.put("pekerjaan", leghtPkerja);
+
+        mViModelUser.registerUser(parameter).observe(this, data -> {
+            if (data != null)
+            {
+                makeToast("Berhasil Mendaftar...");
+                this.finish();
+            } else {
+                makeSnack("Gagal Melakukan Pendaftaran... Silahkan Cek Kembali Data Yang Dimasukkan !");
+            }
+        });
     }
 
 
@@ -342,7 +377,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             @SuppressLint("UseCompatLoadingForDrawables")
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.length() > 2)
+                if (charSequence.length() > 5)
                 {
                     binding.inTxtPasswordKonfirm.setBackground(
                             getResources()
@@ -350,6 +385,47 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
                                             R.drawable.radius_outline_border_gray_10dp
                                     )
                     );
+                } else {
+                    binding.inTxtPasswordKonfirm.setBackground(
+                            getResources()
+                                    .getDrawable(
+                                            R.drawable.radius_outline_border_red_10dp
+                                    )
+                    );
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        binding.inTxtPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @SuppressLint("UseCompatLoadingForDrawables")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 5)
+                {
+                    binding.inTxtPassword.setBackground(
+                            getResources()
+                                    .getDrawable(
+                                            R.drawable.radius_outline_border_gray_10dp
+                                    )
+                    );
+                } else {
+                    binding.inTxtPassword.setBackground(
+                            getResources()
+                                    .getDrawable(
+                                            R.drawable.radius_outline_border_red_10dp
+                                    )
+                    );
+                    binding.inTxtPassword.setError("Password Minimal 6 Karakter !");
                 }
             }
 
@@ -381,6 +457,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         mListJurusan.clear();
         mListJurusan = mList;
         sPositionJur1 = position;
+        sIDJurusan1 = mList.get(position).getIdJurusan();
 //        makeSnack(mList.get(position).getNamaJurusan());
         // TODO : Setting Pilihan Jurusan Kosong
         binding.txtJurusan2.setText("");
@@ -392,9 +469,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
 //        makeSnack(mList.get(position).getNamaJurusan());
        if (tidakmemilih)
        {
+           sIDJurusan2 = "0";
+           sIDJurusan3 = "0";
            binding.txtJurusan2.setText(getString(R.string.TidakMemilih));
            binding.txtJurusan3.setText(getString(R.string.TidakMemilih));
        } else {
+           sIDJurusan2 = mList.get(position).getIdJurusan();
            binding.txtJurusan2.setText(mList.get(position).getNamaJurusan());
            mListJurusan2.clear();
            mListJurusan2 = mList;
@@ -408,11 +488,20 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
     public void onItemPilihJurusan3(int position, List<ModelJurusanList> mList, boolean tidakmemilih) {
         if (tidakmemilih)
         {
+            sIDJurusan3 = "0";
             binding.txtJurusan3.setText(getString(R.string.TidakMemilih));
         } else {
+            sIDJurusan3 = mList.get(position).getIdJurusan();
             binding.txtJurusan3.setText(mList.get(position).getNamaJurusan());
         }
     }
+
+    @Override
+    public void onItemPilihJK(int position, List<ModelJenisKelamin> mList) {
+        sIDJk = mList.get(position).getIdJk();
+        binding.txtJenisKelamin.setText(mList.get(position).getJk());
+    }
+
 
     //-===============================================================================
 
