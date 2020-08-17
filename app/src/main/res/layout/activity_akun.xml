@@ -269,6 +269,37 @@
                 android:textStyle="normal"
                 android:text=""
                 tools:targetApi="lollipop"/>
+
+            <LinearLayout
+                android:id="@+id/btn_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:padding="16dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radius_bg_tr_br_white_25dp"
+                    android:backgroundTint="@color/colorUnguCF8BF3"
+                    android:src="@drawable/ic_power_red_24dp"
+                    android:padding="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="start"
+                    android:padding="13dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:text="@string/LOGOUT"
+                    tools:targetApi="lollipop"/>
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

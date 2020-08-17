@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 //                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //        );
 
+        binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
         mVMUser = ViewModelProviders.of(this).get(ViMoUser.class);
 
         mSPM = new SharedPrefManager(LoginActivity.this);
@@ -105,7 +106,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void doLogin(String username, String password) {
 
+        binding.loadingCustom.fragLoading.setVisibility(View.VISIBLE);
         mVMUser.loginUser(username, password).observe(this, data -> {
+            binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
             if (data != null)
             {
                 int role= 0;
@@ -160,6 +163,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.inTxtUsername.addTextChangedListener(cekUsername);
         binding.inTxtPassword.addTextChangedListener(cekPassword);
     }
+    @SuppressLint("UseCompatLoadingForDrawables")
     private boolean validasiformkosong(String user, String password)
     {
         for (int i =0 ; i < 3; i++)
@@ -213,6 +217,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         @Override
         public void afterTextChanged(Editable s) {
             if (s.length() == 0)
@@ -245,6 +250,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (s.length() < 1)
@@ -264,6 +270,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         @Override
         public void afterTextChanged(Editable s) {
             if (s.length() == 0)

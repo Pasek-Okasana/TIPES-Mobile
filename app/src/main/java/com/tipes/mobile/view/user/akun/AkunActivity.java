@@ -1,6 +1,7 @@
 package com.tipes.mobile.view.user.akun;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +12,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivityAkunBinding;
 import com.tipes.mobile.model.akun.ModelAkunList;
+import com.tipes.mobile.view.LoginActivity;
 import com.tipes.mobile.viewmodel.ViMoUser;
 
 public class AkunActivity extends AppCompatActivity {
     private ActivityAkunBinding binding;
     private ViMoUser mViMoUser;
+    private SharedPrefManager mSPM;
 
     @SuppressLint("ResourceAsColor")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -29,6 +33,7 @@ public class AkunActivity extends AppCompatActivity {
         setContentView(view);
         settingToolbar();
         mViMoUser = ViewModelProviders.of(this).get(ViMoUser.class);
+        mSPM = new SharedPrefManager(AkunActivity.this);
         getWindow().setStatusBarColor(R.color.colorBlue74ebd5);
 
         mViMoUser.getMyAkun().observe(AkunActivity.this, data -> {
@@ -44,6 +49,17 @@ public class AkunActivity extends AppCompatActivity {
                 binding.txtPekerjaandiinginkan.setText(list.getPekerjaan());
                 binding.txtNamaLengkap.setText(list.getNamaLeng());
 
+            }
+        });
+
+        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), false);
+                mSPM.saveSPString(String.valueOf(R.string.SP_USERNAME_APP), "");
+                mSPM.saveSPInt(String.valueOf(R.string.SP_ROLE_APP), 0);
+                startActivity(new Intent(AkunActivity.this, LoginActivity.class));
+                finish();
             }
         });
     }

@@ -266,4 +266,7 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <include
+        android:id="@+id/loading_custom"
+        layout="@layout/custom_loading_mk"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

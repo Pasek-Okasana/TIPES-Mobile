@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         View view = binding.getRoot();
         setContentView(view);
         mViModelUser = ViewModelProviders.of(this).get(ViMoUser.class);
+        binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
 
         getWindow().setStatusBarColor(R.color.colorGray);
         validasiKolomAuto();
@@ -133,6 +134,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             public void onClick(View view) {
                 if (validasiKolomKosong() && validasiMatchPassword()){
 //                    makeSnack("Berhasil Bro");
+
                     doRegister();
                 }
             }
@@ -159,7 +161,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
         parameter.put("asal_sekolah", sIDSekolah);
         parameter.put("pekerjaan", leghtPkerja);
 
+        binding.loadingCustom.fragLoading.setVisibility(View.VISIBLE);
         mViModelUser.registerUser(parameter).observe(this, data -> {
+            binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
             if (data != null)
             {
                 makeToast("Berhasil Mendaftar...");

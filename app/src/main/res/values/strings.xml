@@ -155,5 +155,6 @@
     <string name="PilihanJenisKelamin">Pilih Jenis Kelamin</string>
     <string name="LakiLaki">Laki-Laki</string>
     <string name="Perempuan">Perempuan</string>
+    <string name="LOGOUT">LOGOUT</string>
 
 </resources>
