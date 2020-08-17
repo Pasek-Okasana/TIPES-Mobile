@@ -15,12 +15,16 @@ import com.tipes.mobile.R;
 import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivityAkunBinding;
 import com.tipes.mobile.model.akun.ModelAkunList;
+import com.tipes.mobile.model.sekolah.ModelJurusanList;
+import com.tipes.mobile.model.sekolah.ModelSekolahList;
 import com.tipes.mobile.view.LoginActivity;
+import com.tipes.mobile.viewmodel.ViMoSekolah;
 import com.tipes.mobile.viewmodel.ViMoUser;
 
 public class AkunActivity extends AppCompatActivity {
     private ActivityAkunBinding binding;
     private ViMoUser mViMoUser;
+    private ViMoSekolah mViMoSekolah;
     private SharedPrefManager mSPM;
 
     @SuppressLint("ResourceAsColor")
@@ -33,6 +37,7 @@ public class AkunActivity extends AppCompatActivity {
         setContentView(view);
         settingToolbar();
         mViMoUser = ViewModelProviders.of(this).get(ViMoUser.class);
+        mViMoSekolah = ViewModelProviders.of(this).get(ViMoSekolah.class);
         mSPM = new SharedPrefManager(AkunActivity.this);
         getWindow().setStatusBarColor(R.color.colorBlue74ebd5);
 
@@ -41,11 +46,36 @@ public class AkunActivity extends AppCompatActivity {
             {
                 ModelAkunList list = data.getAkunList().get(0);
 
-                binding.txtAsalSekolah.setText(list.getAsalSekolah());
+                mViMoSekolah.getShowSekolah(list.getAsalSekolah()).observe(this, sekolah -> {
+                    if (sekolah != null)
+                    {
+                        ModelSekolahList sekolahList = sekolah.getSekolahList();
+                        binding.txtAsalSekolah.setText(sekolahList.getNamaSekolah());
+                    }
+                });
+                mViMoSekolah.getShowJurusan(list.getJurusan()).observe(this, jurusan -> {
+                    if (jurusan != null)
+                    {
+                        ModelJurusanList jurList = jurusan.getJurusanList();
+                        binding.txtJurusan1.setText(jurList.getNamaJurusan());
+                    }
+                });
+                mViMoSekolah.getShowJurusan(list.getJurusan2()).observe(this, jurusan2 -> {
+                    if (jurusan2 != null)
+                    {
+                        ModelJurusanList jurList = jurusan2.getJurusanList();
+                        binding.txtJurusan2.setText(jurList.getNamaJurusan());
+                    }
+                });
+                mViMoSekolah.getShowJurusan(list.getJurusan3()).observe(this, jurusan3 -> {
+                    if (jurusan3 != null)
+                    {
+                        ModelJurusanList jurList = jurusan3.getJurusanList();
+                        binding.txtJurusan3.setText(jurList.getNamaJurusan());
+                    }
+                });
+
                 binding.txtIdPendaftaran.setText(list.getUsername());
-                binding.txtJurusan1.setText(list.getJurusan());
-                binding.txtJurusan2.setText(list.getJurusan2());
-                binding.txtJurusan3.setText(list.getJurusan3());
                 binding.txtPekerjaandiinginkan.setText(list.getPekerjaan());
                 binding.txtNamaLengkap.setText(list.getNamaLeng());
 

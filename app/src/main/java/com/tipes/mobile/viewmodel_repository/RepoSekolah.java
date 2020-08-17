@@ -11,6 +11,8 @@ import com.tipes.mobile.connection.networkapi.SekolahEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.model.sekolah.ModelJurusan;
 import com.tipes.mobile.model.sekolah.ModelSekolah;
+import com.tipes.mobile.model.sekolah.ModelShowJurusan;
+import com.tipes.mobile.model.sekolah.ModelShowSekolah;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,6 +59,36 @@ public class RepoSekolah {
 
         return data;
     }
+
+
+    public LiveData<ModelShowSekolah> getShowSekolah(String id)
+    {
+        final MutableLiveData<ModelShowSekolah> data = new MutableLiveData<>();
+        mServiceUserEP.getShowSekolah(id)
+                .enqueue(new Callback<ModelShowSekolah>() {
+                    @Override
+                    public void onResponse(Call<ModelShowSekolah> call, Response<ModelShowSekolah> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelShowSekolah> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogI("Status Repo Log = OnFailure" );
+                    }
+                });
+
+        return data;
+    }
+
     public LiveData<ModelJurusan> getJurusan()
     {
         final MutableLiveData<ModelJurusan> data = new MutableLiveData<>();
@@ -77,6 +109,33 @@ public class RepoSekolah {
 
                     @Override
                     public void onFailure(Call<ModelJurusan> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogI("Status Repo Log = OnFailure" );
+                    }
+                });
+
+        return data;
+    }
+    public LiveData<ModelShowJurusan> getShowJurusan(String id)
+    {
+        final MutableLiveData<ModelShowJurusan> data = new MutableLiveData<>();
+        mServiceUserEP.getShowJurusan(id)
+                .enqueue(new Callback<ModelShowJurusan>() {
+                    @Override
+                    public void onResponse(Call<ModelShowJurusan> call, Response<ModelShowJurusan> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelShowJurusan> call, Throwable t) {
                         data.setValue(null);
                         makeLogI("Status Repo Log = OnFailure" );
                     }
