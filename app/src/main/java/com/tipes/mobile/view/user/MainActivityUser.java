@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivityMainUserBinding;
 import com.tipes.mobile.model.MenuDashboardModel;
 import com.tipes.mobile.view.user.akun.AkunActivity;
+import com.tipes.mobile.view.user.kuisioner.KuisionerActivity;
 import com.tipes.mobile.view.user.petunjuk.PetunjukActivity;
 
 import java.text.DateFormat;
@@ -34,6 +36,8 @@ public class MainActivityUser extends AppCompatActivity {
     private GridLayoutManager mLayoutManager;
     private MainUserAdapter mAdapter;
 
+    private SharedPrefManager mSPM;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,7 @@ public class MainActivityUser extends AppCompatActivity {
         binding = ActivityMainUserBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        mSPM = new SharedPrefManager(this);
         loadDisplayHari();
         tambahDataMenu();
         setMenu();
@@ -57,7 +62,7 @@ public class MainActivityUser extends AppCompatActivity {
             }
         }
 
-        binding.txtUsername.setText("Nama Orang");
+        binding.txtUsername.setText(mSPM.getSPUsername());
     }
 
     private void onClickItemMenu() {
@@ -71,7 +76,7 @@ public class MainActivityUser extends AppCompatActivity {
                         startActivity(new Intent(MainActivityUser.this, PetunjukActivity.class));
                         break;
                     case 1 :
-                        makeSnack("Kuisioner");
+                        startActivity(new Intent(MainActivityUser.this, KuisionerActivity.class));
                         break;
                     case 2 :
                         makeSnack("Nilai");

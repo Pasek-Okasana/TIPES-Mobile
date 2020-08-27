@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".view.user.kuisioner.soal.SoalActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/appBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:elevation="0dp"
+        android:background="@android:color/white">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_left_default"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_top">
+
+        <LinearLayout
+            android:id="@+id/layout_soal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/layout_top">
+
+            <TextView
+                android:id="@+id/txt_soal1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:layout_marginStart="40dp"
+                android:paddingStart="24dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/s1"/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/s1"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_soal2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+            <TextView
+                android:id="@+id/txt_soal3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+            <TextView
+                android:id="@+id/txt_soal4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+            <TextView
+                android:id="@+id/txt_soal5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

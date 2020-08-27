@@ -1,4 +1,4 @@
-package com.tipes.mobile.view.user;
+package com.tipes.mobile.view.user.kuisioner;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tipes.mobile.databinding.ItemMenuDashboardBinding;
-import com.tipes.mobile.model.MenuDashboardModel;
+import com.tipes.mobile.databinding.ItemMenuKategoriBinding;
+import com.tipes.mobile.model.kategory.ModelKategoriList;
 
 import java.util.List;
 
-public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHolder> {
-    private List<MenuDashboardModel> mList;
+public class KuisionerAdapter extends RecyclerView.Adapter<KuisionerAdapter.MainHolder> {
+    private List<ModelKategoriList> mList;
     private static ClickListener clickListener;
 
-    public MainUserAdapter(List<MenuDashboardModel> mList) {
+    public KuisionerAdapter(List<ModelKategoriList> mList) {
         this.mList = mList;
     }
 
@@ -24,7 +24,7 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
     @Override
     public MainHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ItemMenuDashboardBinding binding = ItemMenuDashboardBinding.inflate(layoutInflater, parent, false);
+        ItemMenuKategoriBinding binding = ItemMenuKategoriBinding.inflate(layoutInflater, parent, false);
         return new MainHolder(binding);
     }
 
@@ -38,17 +38,18 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
         return mList.size();
     }
 
-    public MenuDashboardModel getItemPosition(int position)
+    public ModelKategoriList getItemPosition(int position)
     {
-        return  mList.get(position);
+        return mList.get(position);
     }
 
     public class MainHolder extends RecyclerView.ViewHolder {
-        private ItemMenuDashboardBinding mBinding;
-        public MainHolder(ItemMenuDashboardBinding binding) {
+        ItemMenuKategoriBinding mBinding;
+        public MainHolder(ItemMenuKategoriBinding binding) {
             super(binding.getRoot());
             mBinding = binding;
-            mBinding.cardMenu.setOnClickListener(new View.OnClickListener() {
+
+            mBinding.btnKerjakan.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
@@ -57,13 +58,10 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
                     }
                 }
             });
-
         }
 
-        public void bindToView(MenuDashboardModel itemPosition, int position) {
-            mBinding.imgLogo.setImageResource(itemPosition.getGambar());
-            mBinding.txtNama.setText(itemPosition.getNama());
-            mBinding.txtKeterangan.setText(itemPosition.getKeterangan());
+        public void bindToView(ModelKategoriList itemPosition, int position) {
+            mBinding.txtNama.setText(itemPosition.getNamaKategori());
         }
     }
 
@@ -74,7 +72,7 @@ public class MainUserAdapter extends RecyclerView.Adapter<MainUserAdapter.MainHo
      **/
     public void
     setOnItemClickListener(ClickListener clickListener) {
-        MainUserAdapter.clickListener = clickListener;
+       KuisionerAdapter.clickListener = clickListener;
     }
 
     public interface ClickListener {

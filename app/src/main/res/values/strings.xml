@@ -156,5 +156,11 @@
     <string name="LakiLaki">Laki-Laki</string>
     <string name="Perempuan">Perempuan</string>
     <string name="LOGOUT">LOGOUT</string>
+    <string name="DaftarKuisioner">Daftar Kuisioner</string>
+    <string name="Kerjakan">Kerjakan</string>
+    <string name="idkuisioner">idkuisioner</string>
+    <string name="idkategori">idkategori</string>
+    <string name="JumlahYa">Jumlah Ya</string>
+    <string name="JumlahTidak">Jumlah Tidak</string>
 
 </resources>

@@ -58,6 +58,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
 
     private void onClickButtonJurusan() {
 
+        binding.txtPunyaakun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         binding.txtSekolah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterOnCli
             }
         });
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+        binding.btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (validasiKolomKosong() && validasiMatchPassword()){
