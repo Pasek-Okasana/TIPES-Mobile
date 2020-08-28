@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".view.user.kuisioner.soal.SoalActivity"
+        <activity android:name=".view.user.kuisioner.soal.yesno.SoalActivity"
             android:theme="@style/AppThemeNoBarSBGray"/>
         <activity
             android:name=".view.user.kuisioner.KuisionerActivity"

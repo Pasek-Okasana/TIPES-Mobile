@@ -1,15 +1,26 @@
 package com.tipes.mobile.connection.networkapi;
 
+import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
+import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface QuizEndPoint {
 
     @GET("api/kategori")
     Call<ModelKategori> getKategori();
 
+    @GET("api/instrument")
+    Call<ModelInstrumen> getInstrument();
+
+    @GET("api/soal/{kategori}/{instrument}")
+    Call<ModelSoalYN> getSoalYesNo(
+            @Path("kategori") String kategori,
+            @Path("instrument") String instrument
+    );
 
 //    @FormUrlEncoded
 //    @POST("user/auth/activate")

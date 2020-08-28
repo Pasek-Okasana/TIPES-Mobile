@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".view.user.kuisioner.soal.SoalActivity">
+    tools:context=".view.user.kuisioner.soal.yesno.SoalActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -31,16 +31,19 @@
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layout_top">
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        app:layout_constraintTop_toBottomOf="@id/layout_top"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:id="@+id/layout_soal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/layout_top">
+            android:layout_marginBottom="?android:attr/actionBarSize">
 
             <TextView
                 android:id="@+id/txt_soal1"
@@ -49,12 +52,13 @@
                 android:paddingTop="19dp"
                 android:paddingBottom="19dp"
                 android:paddingEnd="20dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="50dp"
                 android:paddingStart="24dp"
                 tools:ignore="RtlSymmetry"
                 android:textSize="20sp"
                 android:textStyle="normal"
                 android:textColor="@android:color/black"
+                android:text=""
                 android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -85,7 +89,7 @@
                     android:padding="16dp"
                     android:textSize="15sp"
                     android:textColor="@android:color/black"
-                    android:text="@string/s1"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/txt_ket_total_tidak_soal1"
                     android:layout_width="wrap_content"
@@ -101,7 +105,7 @@
                     android:padding="16dp"
                     android:textSize="15sp"
                     android:textColor="@android:color/black"
-                    android:text="@string/s1"/>
+                    android:text=""/>
 
             </LinearLayout>
 
@@ -113,7 +117,7 @@
                 android:paddingBottom="19dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="24dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 tools:ignore="RtlSymmetry"
                 android:textSize="20sp"
@@ -127,6 +131,48 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"/>
 
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/txt_soal3"
                 android:layout_width="match_parent"
@@ -135,7 +181,7 @@
                 android:paddingBottom="19dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="24dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 tools:ignore="RtlSymmetry"
                 android:textSize="20sp"
@@ -149,6 +195,49 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"/>
 
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <!--   TODO : No Soal 4         -->
             <TextView
                 android:id="@+id/txt_soal4"
                 android:layout_width="match_parent"
@@ -157,7 +246,7 @@
                 android:paddingBottom="19dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="24dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 tools:ignore="RtlSymmetry"
                 android:textSize="20sp"
@@ -171,6 +260,49 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"/>
 
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+
+            </LinearLayout>
+
+            <!--   TODO : No Soal 5         -->
             <TextView
                 android:id="@+id/txt_soal5"
                 android:layout_width="match_parent"
@@ -179,7 +311,7 @@
                 android:paddingBottom="19dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="24dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 tools:ignore="RtlSymmetry"
                 android:textSize="20sp"
@@ -193,7 +325,126 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"/>
 
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+            </LinearLayout>
+
+            <!--   TODO : No Soal 6         -->
+            <TextView
+                android:id="@+id/txt_soal6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                tools:ignore="RtlSymmetry"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/black"
+                android:background="@drawable/radius_gradien_tl_bl_co_radar"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_soal6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txt_ket_total_ya_soal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahYa"/>
+                <TextView
+                    android:id="@+id/txt_total_ya_soal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/txt_ket_total_tidak_soal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/JumlahTidak"/>
+                <TextView
+                    android:id="@+id/txt_total_tidak_soal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text=""/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_simpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="16dp"
+                android:background="@color/colorGreen"
+                android:text="@string/Simpan"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"/>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <include
+        android:id="@+id/loading_custom"
+        layout="@layout/custom_loading_mk"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

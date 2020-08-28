@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityKuisionerBinding;
 import com.tipes.mobile.model.kategory.ModelKategoriList;
-import com.tipes.mobile.view.user.kuisioner.soal.SoalActivity;
+import com.tipes.mobile.view.user.kuisioner.soal.yesno.SoalActivity;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
 
 import java.util.ArrayList;
@@ -65,12 +65,18 @@ public class KuisionerActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new KuisionerAdapter.ClickListener() {
             @Override
             public void onCardClick(View v, int position) {
-                startActivity(
-                        new Intent(KuisionerActivity.this, SoalActivity.class)
-                        .putExtra(
-                                String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
-                        )
-                );
+               int num = Integer.parseInt(mAdapter.getItemPosition(position).getIdKategori());
+               if (num == 4)
+               {
+                   makeSnack("D");
+               } else {
+                   startActivity(
+                           new Intent(KuisionerActivity.this, SoalActivity.class)
+                                   .putExtra(
+                                           String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
+                                   )
+                   );
+               }
 //                makeSnack(mAdapter.getItemPosition(position).getNamaKategori());
             }
         });

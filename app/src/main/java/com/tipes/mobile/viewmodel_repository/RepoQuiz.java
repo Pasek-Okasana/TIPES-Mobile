@@ -9,7 +9,9 @@ import androidx.lifecycle.MutableLiveData;
 import com.tipes.mobile.connection.networkapi.ClientGetRetrofit;
 import com.tipes.mobile.connection.networkapi.QuizEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
+import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
+import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +50,58 @@ public class RepoQuiz {
 
                     @Override
                     public void onFailure(Call<ModelKategori> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogE("Status Repo Log = onFailure" );
+                    }
+                });
+        return data;
+    }
+    public LiveData<ModelInstrumen> getInstrument()
+    {
+        final MutableLiveData<ModelInstrumen> data = new MutableLiveData<>();
+        mServiceQuizEP.getInstrument()
+                .enqueue(new Callback<ModelInstrumen>() {
+                    @Override
+                    public void onResponse(Call<ModelInstrumen> call, Response<ModelInstrumen> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelInstrumen> call, Throwable t) {
+                        data.setValue(null);
+                        makeLogE("Status Repo Log = onFailure" );
+                    }
+                });
+        return data;
+    }
+    public LiveData<ModelSoalYN> getSoalYesNo(String kategori, String instrumen)
+    {
+        final MutableLiveData<ModelSoalYN> data = new MutableLiveData<>();
+        mServiceQuizEP.getSoalYesNo(kategori, instrumen)
+                .enqueue(new Callback<ModelSoalYN>() {
+                    @Override
+                    public void onResponse(Call<ModelSoalYN> call, Response<ModelSoalYN> response) {
+                        if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                        {
+                            data.setValue(response.body());
+                            makeLogI("Status Repo Log = " + response.code());
+                        } else
+                        {
+                            data.setValue(null);
+                            makeLogI("Status Repo Log = " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelSoalYN> call, Throwable t) {
                         data.setValue(null);
                         makeLogE("Status Repo Log = onFailure" );
                     }

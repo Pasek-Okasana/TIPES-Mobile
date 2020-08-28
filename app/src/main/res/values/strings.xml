@@ -162,5 +162,8 @@
     <string name="idkategori">idkategori</string>
     <string name="JumlahYa">Jumlah Ya</string>
     <string name="JumlahTidak">Jumlah Tidak</string>
+    <string name="Simpan">Simpan</string>
+    <string name="YA">YA</string>
+    <string name="TIDAK">TIDAK</string>
 
 </resources>
