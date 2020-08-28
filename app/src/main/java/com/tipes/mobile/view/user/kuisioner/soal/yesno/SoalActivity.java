@@ -25,7 +25,7 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
     private ActivitySoalBinding binding;
     private Bundle extras;
     private  int intIdKategori;
-    private String sIdKategori;
+    private String sIdKategori,sNamaKategori;
 
     private ViMoQuiz mViMoQuiz;
 
@@ -45,13 +45,13 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         binding = ActivitySoalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        settingToolbar();
-        mViMoQuiz = ViewModelProviders.of(this).get(ViMoQuiz.class);
-
         extras = getIntent().getExtras();
 
         sIdKategori = extras.getString(String.valueOf(R.string.idkategori));
         intIdKategori = Integer.parseInt(sIdKategori);
+        sNamaKategori = extras.getString(String.valueOf(R.string.kategori));
+        settingToolbar();
+        mViMoQuiz = ViewModelProviders.of(this).get(ViMoQuiz.class);
 
         mViMoQuiz.getInstrumen().observe(this, data -> {
             binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
@@ -197,21 +197,6 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
     }
 
 
-    private void settingToolbar() {
-        Toolbar mToolbar = (Toolbar) binding.toolbar.getRoot();
-        setSupportActionBar(mToolbar);
-        binding.toolbar.txtToolbarName.setText("");
-
-        mToolbar.setNavigationIcon(R.drawable.ic_backspace_black_24dp);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Your code
-                finish();
-            }
-        });
-    }
 
     @Override
     public void onItemSoal1Click(int position, int id, List<ModelSoalYNList> mList, String instrumen) {
@@ -251,6 +236,21 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         }
     }
 
+    private void settingToolbar() {
+        Toolbar mToolbar = (Toolbar) binding.toolbar.getRoot();
+        setSupportActionBar(mToolbar);
+        binding.toolbar.txtToolbarName.setText(sNamaKategori);
+
+        mToolbar.setNavigationIcon(R.drawable.ic_backspace_black_24dp);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Your code
+                finish();
+            }
+        });
+    }
     /**
      ==================== Make Toast
      */

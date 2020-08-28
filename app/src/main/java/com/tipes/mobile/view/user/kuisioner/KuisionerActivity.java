@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
 import com.tipes.mobile.databinding.ActivityKuisionerBinding;
 import com.tipes.mobile.model.kategory.ModelKategoriList;
+import com.tipes.mobile.view.user.kuisioner.soal.number.SoalNumberTunggalActivity;
 import com.tipes.mobile.view.user.kuisioner.soal.yesno.SoalActivity;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
 
@@ -47,6 +48,7 @@ public class KuisionerActivity extends AppCompatActivity {
         binding.recycleKuisioner.setLayoutManager(mLayout);
 
         mViMoQuiz.getKategori().observe(this, data -> {
+            binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
             if (data != null)
             {
                 mList.clear();
@@ -68,12 +70,23 @@ public class KuisionerActivity extends AppCompatActivity {
                int num = Integer.parseInt(mAdapter.getItemPosition(position).getIdKategori());
                if (num == 4)
                {
-                   makeSnack("D");
+                   startActivity(
+                           new Intent(KuisionerActivity.this, SoalNumberTunggalActivity.class)
+                                   .putExtra(
+                                           String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
+                                   )
+                                   .putExtra(
+                                           String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
+                                   )
+                   );
                } else {
                    startActivity(
                            new Intent(KuisionerActivity.this, SoalActivity.class)
                                    .putExtra(
                                            String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
+                                   )
+                                   .putExtra(
+                                           String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
                                    )
                    );
                }
