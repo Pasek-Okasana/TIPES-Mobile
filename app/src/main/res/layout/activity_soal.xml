@@ -28,6 +28,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/appBar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="@string/WAKTU"/>
+        <TextView
+            android:id="@+id/txt_waktu_nilai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text=""/>
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".view.user.kuisioner.soal.number.SoalNumberTunggalActivity">
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/appBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         app:elevation="0dp"
         android:background="@android:color/white">
         <include
@@ -25,24 +28,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/appBar">
+        android:background="@android:color/white"
+        android:layout_below="@id/appBar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text="@string/WAKTU"/>
+        <TextView
+            android:id="@+id/txt_waktu_nilai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:text=""/>
     </LinearLayout>
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedscroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        app:layout_constraintTop_toBottomOf="@id/layout_top"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_below="@id/layout_top">
 
         <LinearLayout
             android:id="@+id/layout_soal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="200dp"
             android:layout_gravity="center"
             android:layout_marginBottom="?android:attr/actionBarSize">
 
@@ -79,7 +95,7 @@
                     android:layout_alignParentEnd="true"
                     />
                 <RadioGroup
-                    android:id="@+id/opsi_r"
+                    android:id="@+id/opsi1_r"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -714,7 +730,8 @@
                 android:layout_height="2dp"
                 android:orientation="vertical"
                 android:background="@drawable/gradien_co_radar"
-                android:contentDescription="@string/TIPES" />
+                android:contentDescription="@string/TIPES"
+                tools:ignore="TooManyViews" />
 
 
             <Button
@@ -730,8 +747,8 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
     <include
         android:id="@+id/loading_custom"
-        layout="@layout/custom_loading_mk"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        layout="@layout/custom_loading_mk"
+        tools:ignore="TooManyViews" />
+</RelativeLayout>

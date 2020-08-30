@@ -3,6 +3,7 @@ package com.tipes.mobile.Helper;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYNList;
 
 import java.util.List;
+import java.util.Locale;
 
 public class UtilsData {
     public static String getJenisKelaminToNumberString(String jk)
@@ -48,5 +49,13 @@ public class UtilsData {
         }
         hasil = Integer.toString(count);
         return hasil;
+    }
+
+
+    public static String updateCountTimeDownString(long millisUntilFinished) {
+        int minutes = (int) (millisUntilFinished / 1000) / 60;
+        int seconds = (int) (millisUntilFinished / 1000) % 60;
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        return timeLeftFormatted;
     }
 }

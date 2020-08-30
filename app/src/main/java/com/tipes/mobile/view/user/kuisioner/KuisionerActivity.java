@@ -78,6 +78,9 @@ public class KuisionerActivity extends AppCompatActivity {
                                    .putExtra(
                                            String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
                                    )
+                                   .putExtra(
+                                           String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
+                                   )
                    );
                } else {
                    startActivity(
@@ -87,6 +90,9 @@ public class KuisionerActivity extends AppCompatActivity {
                                    )
                                    .putExtra(
                                            String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
+                                   )
+                                   .putExtra(
+                                           String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
                                    )
                    );
                }

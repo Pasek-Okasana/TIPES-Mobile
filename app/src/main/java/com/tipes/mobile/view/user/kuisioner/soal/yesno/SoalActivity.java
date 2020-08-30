@@ -1,6 +1,7 @@
 package com.tipes.mobile.view.user.kuisioner.soal.yesno;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,8 +25,8 @@ import java.util.List;
 public class SoalActivity extends AppCompatActivity implements SoalYNOnClickListener {
     private ActivitySoalBinding binding;
     private Bundle extras;
-    private  int intIdKategori;
-    private String sIdKategori,sNamaKategori;
+    private  int intIdKategori, intWaktuSoal;
+    private String sIdKategori,sNamaKategori, sNilai1R, sNilai2I, sNilai3A, sNilai4S, sNilai5E, sNilai6K;
 
     private ViMoQuiz mViMoQuiz;
 
@@ -39,6 +40,12 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
 
     private LinearLayoutManager mLayout;
 
+
+    private static final long START_TIME_IN_MILLIS = 60000;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +53,11 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         View view = binding.getRoot();
         setContentView(view);
         extras = getIntent().getExtras();
-
         sIdKategori = extras.getString(String.valueOf(R.string.idkategori));
         intIdKategori = Integer.parseInt(sIdKategori);
         sNamaKategori = extras.getString(String.valueOf(R.string.kategori));
+        intWaktuSoal = Integer.parseInt(extras.getString(String.valueOf(R.string.waktu)));
+
         settingToolbar();
         mViMoQuiz = ViewModelProviders.of(this).get(ViMoQuiz.class);
 
@@ -58,12 +66,75 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
             if (data != null)
             {
                 setDataToView(data.getDataListst());
+
             } else {
 
             }
         });
 
+        setOnClick();
     }
+
+    private void setOnClick() {
+        binding.btnSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendDataToServer();
+            }
+        });
+    }
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis * intWaktuSoal, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                String time = UtilsData.updateCountTimeDownString(millisUntilFinished);
+                binding.txtWaktuNilai.setText(time);
+            }
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                binding.txtWaktuNilai.setText(getString(R.string.WaktuHabis));
+                finish();
+            }
+        }.start();
+        mTimerRunning = true;
+    }
+
+    private void sendDataToServer() {
+        if (sNilai1R == null)
+        {
+            sNilai1R = "0";
+        }
+        if (sNilai2I == null)
+        {
+            sNilai2I = "0";
+        }
+        if (sNilai3A == null)
+        {
+            sNilai3A = "0";
+        }
+        if (sNilai4S == null)
+        {
+            sNilai4S = "0";
+        }
+        if (sNilai5E == null)
+        {
+            sNilai5E = "0";
+        }
+        if (sNilai6K == null)
+        {
+            sNilai6K = "0";
+        }
+
+        makeSnack(
+                " R " + sNilai1R +
+                        " I " + sNilai2I +
+                        " A " + sNilai3A
+        );
+    }
+
+
 
     private void setDataToView(List<ModelInstrumenList> dataListst) {
         for (ModelInstrumenList row : dataListst)
@@ -187,6 +258,7 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
                             mListSN6.clear();
                             mListSN6.addAll(data.getDataListst());
                             mAdapterSN6.notifyDataSetChanged();
+                            startTimer();
                         } else {
 
                         }
@@ -206,31 +278,37 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         if (instrumen.equals("R"))
         {
 //            makeToast("R");
+            sNilai1R = totalya;
             binding.txtTotalYaSoal1.setText(totalya);
             binding.txtTotalTidakSoal1.setText(totaltidak);
         } else if (instrumen.equals("I"))
         {
 //            makeToast("I");
+            sNilai2I = totalya;
             binding.txtTotalYaSoal2.setText(totalya);
             binding.txtTotalTidakSoal2.setText(totaltidak);
         } else if (instrumen.equals("A"))
         {
 //            makeToast("A");
+            sNilai3A = totalya;
             binding.txtTotalYaSoal3.setText(totalya);
             binding.txtTotalTidakSoal3.setText(totaltidak);
         } else if (instrumen.equals("S"))
         {
-//            makeToast("S");
+//            makeToast("S");\
+            sNilai4S = totalya;
             binding.txtTotalYaSoal4.setText(totalya);
             binding.txtTotalTidakSoal4.setText(totaltidak);
         } else if (instrumen.equals("E"))
         {
 //            makeToast("E");
+            sNilai5E = totalya;
             binding.txtTotalYaSoal5.setText(totalya);
             binding.txtTotalTidakSoal5.setText(totaltidak);
         } else if (instrumen.equals("K"))
         {
 //            makeToast("K");
+            sNilai6K = totalya;
             binding.txtTotalYaSoal6.setText(totalya);
             binding.txtTotalTidakSoal6.setText(totaltidak);
         }

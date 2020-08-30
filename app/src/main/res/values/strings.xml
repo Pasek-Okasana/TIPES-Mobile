@@ -166,5 +166,8 @@
     <string name="YA">YA</string>
     <string name="TIDAK">TIDAK</string>
     <string name="kategori">kategori</string>
+    <string name="WAKTU">WAKTU</string>
+    <string name="WaktuHabis">Waktu Habis !</string>
+    <string name="waktu">waktu</string>
 
 </resources>
