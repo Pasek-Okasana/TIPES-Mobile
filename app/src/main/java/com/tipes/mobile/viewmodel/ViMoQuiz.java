@@ -6,16 +6,20 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.tipes.mobile.model.aksiquiz.ModelAksiQuiz;
 import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
 import com.tipes.mobile.viewmodel_repository.RepoQuiz;
+
+import java.util.Map;
 
 public class ViMoQuiz extends AndroidViewModel {
     private RepoQuiz mRepo;
     private LiveData<ModelKategori> livedataKategori;
     private LiveData<ModelInstrumen> liveDataInstrumen;
     private LiveData<ModelSoalYN> liveDataSoalYN;
+    private LiveData<ModelAksiQuiz> liveDataAksiQuiz;
     public ViMoQuiz(@NonNull Application application) {
         super(application);
         mRepo = new RepoQuiz(application);
@@ -37,5 +41,10 @@ public class ViMoQuiz extends AndroidViewModel {
     {
         liveDataSoalYN = mRepo.getSoalYesNo(kategori, instrument);
         return liveDataSoalYN;
+    }
+
+    public LiveData<ModelAksiQuiz> postAksiQuiz(Map<String, String> parameter) {
+        liveDataAksiQuiz = mRepo.postAksiQuiz(parameter);
+        return liveDataAksiQuiz;
     }
 }

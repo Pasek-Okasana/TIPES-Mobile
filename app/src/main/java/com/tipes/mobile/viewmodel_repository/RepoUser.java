@@ -41,7 +41,7 @@ public class RepoUser {
                     public void onResponse(Call<ModelLogin> call, Response<ModelLogin> response) {
                         if (response.isSuccessful()
                                 && response.body() != null
-                                && response.code() == 200)
+                                && response.code() == 200 || response.code() == 201)
                         {
                             data.setValue(response.body());
                             makeLogI("Status Repo Log = " + response.code());

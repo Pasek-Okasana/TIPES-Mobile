@@ -9,9 +9,12 @@ import androidx.lifecycle.MutableLiveData;
 import com.tipes.mobile.connection.networkapi.ClientGetRetrofit;
 import com.tipes.mobile.connection.networkapi.QuizEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
+import com.tipes.mobile.model.aksiquiz.ModelAksiQuiz;
 import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +44,7 @@ public class RepoQuiz {
                         {
                             data.setValue(response.body());
                             makeLogI("Status Repo Log = " + response.code());
+                            makeLogI("Status Repo Log Total = " + response.body().getDataListst().size());
                         } else
                         {
                             data.setValue(null);
@@ -123,5 +127,35 @@ public class RepoQuiz {
     private void makeLogD(String msg)
     {
         Log.d(TAG, msg);
+    }
+
+    public LiveData<ModelAksiQuiz> postAksiQuiz(Map<String, String> parameter) {
+        final MutableLiveData<ModelAksiQuiz> data = new MutableLiveData<>();
+        mServiceQuizEP.postAksiQuiz(parameter).enqueue(new Callback<ModelAksiQuiz>() {
+            @Override
+            public void onResponse(Call<ModelAksiQuiz> call, Response<ModelAksiQuiz> response) {
+                if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                {
+                    data.setValue(response.body());
+                    makeLogI("Status Repo Log = " + response.code());
+                } else
+                {
+                    ModelAksiQuiz maq = new ModelAksiQuiz();
+                    maq.setCode(String.valueOf(response.code()));
+                    maq.setMsg("Gagal Menyimpan data...");
+
+                    data.setValue(maq);
+                    makeLogI("Status Repo Log = " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelAksiQuiz> call, Throwable t) {
+                data.setValue(null);
+                makeLogE("Status Repo Log = onFailure" );
+            }
+        });
+
+        return data;
     }
 }

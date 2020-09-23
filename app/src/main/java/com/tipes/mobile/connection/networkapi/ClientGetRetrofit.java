@@ -21,7 +21,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ClientGetRetrofit {
-    private static String baseurl = "http://kuis.pasekokasana.com/";
+    private static String baseurl2 = "http://kuis.pasekokasana.com/";
+    private static String baseurl = "https://api.iksytem.online/";
     /**
      ==================== Setting Http Inceptor dan SSL
      */

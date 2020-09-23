@@ -43,7 +43,7 @@ public class KuisionerActivity extends AppCompatActivity {
         mAdapter = new KuisionerAdapter(mList);
         mLayout = new LinearLayoutManager(this);
 
-        binding.recycleKuisioner.setHasFixedSize(true);
+//        binding.recycleKuisioner.setHasFixedSize(true);
         binding.recycleKuisioner.setAdapter(mAdapter);
         binding.recycleKuisioner.setLayoutManager(mLayout);
 
@@ -54,6 +54,8 @@ public class KuisionerActivity extends AppCompatActivity {
                 mList.clear();
                 mList.addAll(data.getDataListst());
                 mAdapter.notifyDataSetChanged();
+                makeLogI("Jumlah Kategori  " + mList.size());
+                makeLogI("Jumlah Kategori di Adapter " + mAdapter.getItemCount());
 
             } else {
                 makeToast(getString(R.string.MaafJaringanSibuk));

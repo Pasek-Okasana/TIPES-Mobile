@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.Helper.UtilsData;
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivitySoalNumberTunggalBinding;
 import com.tipes.mobile.model.instrumen.ModelInstrumenList;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
@@ -25,7 +26,7 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
     private Bundle extras;
     private  int intIdKategori, intWaktuSoal;
     private String sIdKategori, sNamaKategori, sNilai1R, sNilai2I, sNilai3A, sNilai4S, sNilai5E, sNilai6K;
-
+    private SharedPrefManager mSPM;
     private ViMoQuiz mViMoQuiz;
 
     private static final long START_TIME_IN_MILLIS = 60000;
@@ -40,7 +41,7 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         extras = getIntent().getExtras();
-
+        mSPM = new SharedPrefManager(this);
         sIdKategori = extras.getString(String.valueOf(R.string.idkategori));
         sNamaKategori = extras.getString(String.valueOf(R.string.kategori));
         intIdKategori = Integer.parseInt(sIdKategori);
@@ -283,7 +284,11 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
             sNilai6K = "0";
         }
 
-        makeSnack(
+        String sNilaiAct, sUsername;
+        sNilaiAct = "input-hasil_"+sIdKategori;
+        sUsername = mSPM.getSPUsername();
+
+        makeSnack("Username " + sUsername + " Kategori " + sIdKategori +
                 " R " + sNilai1R +
                 " I " + sNilai2I +
                 " A " + sNilai3A

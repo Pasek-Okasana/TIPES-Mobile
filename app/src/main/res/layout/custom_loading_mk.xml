@@ -19,7 +19,7 @@
             android:id="@+id/loadings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:mk_type="Sharingan"
+            app:mk_type="LineSpinner"
             app:mk_color="@color/colorRed"
             android:layout_centerInParent="true"
             />

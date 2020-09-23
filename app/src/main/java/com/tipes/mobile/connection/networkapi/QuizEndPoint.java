@@ -1,11 +1,17 @@
 package com.tipes.mobile.connection.networkapi;
 
+import com.tipes.mobile.model.aksiquiz.ModelAksiQuiz;
 import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
 
+import java.util.Map;
+
 import retrofit2.Call;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface QuizEndPoint {
@@ -22,10 +28,9 @@ public interface QuizEndPoint {
             @Path("instrument") String instrument
     );
 
-//    @FormUrlEncoded
-//    @POST("user/auth/activate")
-//    Call<ModelAuth> activationAccount(@Field("idusr") String idusr,
-//                                      @Field("code") String code);
+    @FormUrlEncoded
+    @POST("api/quis/aksi_quiz")
+    Call<ModelAksiQuiz> postAksiQuiz(@FieldMap Map<String, String> parameter);
 //
 //
 //    @FormUrlEncoded

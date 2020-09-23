@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.Helper.UtilsData;
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivitySoalBinding;
 import com.tipes.mobile.model.instrumen.ModelInstrumenList;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYNList;
@@ -20,13 +21,16 @@ import com.tipes.mobile.view.user.kuisioner.soal.SoalYNOnClickListener;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SoalActivity extends AppCompatActivity implements SoalYNOnClickListener {
     private ActivitySoalBinding binding;
     private Bundle extras;
     private  int intIdKategori, intWaktuSoal;
     private String sIdKategori,sNamaKategori, sNilai1R, sNilai2I, sNilai3A, sNilai4S, sNilai5E, sNilai6K;
+    private SharedPrefManager mSPM;
 
     private ViMoQuiz mViMoQuiz;
 
@@ -52,6 +56,7 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         binding = ActivitySoalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        mSPM = new SharedPrefManager(this);
         extras = getIntent().getExtras();
         sIdKategori = extras.getString(String.valueOf(R.string.idkategori));
         intIdKategori = Integer.parseInt(sIdKategori);
@@ -127,11 +132,46 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
             sNilai6K = "0";
         }
 
-        makeSnack(
-                " R " + sNilai1R +
-                        " I " + sNilai2I +
-                        " A " + sNilai3A
-        );
+        String sNilaiAct, sUsername;
+        sNilaiAct = "input-hasil_"+sIdKategori;
+        sUsername = mSPM.getSPUsername();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("id_kategori", sIdKategori);
+        parameter.put("yes_resultR", sNilai1R);
+        parameter.put("yes_resultI",sNilai2I);
+        parameter.put("yes_resultA", sNilai3A);
+        parameter.put("yes_resultS", sNilai4S);
+        parameter.put("yes_resultE", sNilai5E);
+        parameter.put("yes_resultK", sNilai6K);
+        parameter.put("kick", "0");
+        parameter.put("module", "quiz");
+        parameter.put("act", sNilaiAct);
+        parameter.put("username", sUsername);
+        parameter.put("R", "");
+        parameter.put("I", "");
+        parameter.put("A", "");
+        parameter.put("S", "");
+        parameter.put("E", "");
+        parameter.put("K", "");
+        parameter.put("kick", "");
+
+        mViMoQuiz.postAksiQuiz(parameter).observe(this, datapost -> {
+            if (datapost != null){
+                if (datapost.getCode().equals(201)){
+                    finish();
+                } else {
+                    makeToast("Maaf... Gagal Menyimpan Data !");
+                }
+            } else {
+                makeSnack(getString(R.string.maafjaringansibuk));
+            }
+        });
+//        makeSnack("Username " + sNilaiAct + " Kategori " + sIdKategori +
+//                " R " + sNilai1R +
+//                        " I " + sNilai2I +
+//                        " A " + sNilai3A
+//        );
     }
 
 

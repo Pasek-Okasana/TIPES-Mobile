@@ -40,15 +40,15 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="75dp"
             android:background="@drawable/radius_bg_top_white_25dp">
 
             <TextView
@@ -61,11 +61,12 @@
                 android:text="@string/DaftarKuisioner"
                 android:layout_marginTop="24dp"
                 />
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleKuisioner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:id="@+id/recycleKuisioner"/>
+                android:layout_height="match_parent"
+                android:padding="16dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -111,15 +111,15 @@ public class LoginActivity extends AppCompatActivity {
             binding.loadingCustom.fragLoading.setVisibility(View.INVISIBLE);
             if (data != null)
             {
-                int role= 0;
+                int role= 2;
 
-                if (data.getLevel().equals("admin"))
-                {
-                    role = 1;
-                } else if (data.getLevel().equals("mahasiswa"))
-                {
-                    role = 2;
-                }
+//                if (data.getLevel().equals("admin"))
+//                {
+//                    role = 1;
+//                } else if (data.getLevel().equals("mahasiswa"))
+//                {
+//                    role = 2;
+//                }
                 mSPM.saveSPBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), true);
                 mSPM.saveSPString(String.valueOf(R.string.SP_USERNAME_APP), username);
 //                mSPM.saveSPString(String.valueOf(R.string.SP_ID_USER_APP), "12");
