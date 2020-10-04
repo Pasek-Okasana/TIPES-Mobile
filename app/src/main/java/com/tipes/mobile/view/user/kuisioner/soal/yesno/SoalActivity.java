@@ -158,7 +158,7 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
 
         mViMoQuiz.postAksiQuiz(parameter).observe(this, datapost -> {
             if (datapost != null){
-                if (datapost.getCode().equals(201)){
+                if (datapost.getCode() == 201){
                     finish();
                 } else {
                     makeToast("Maaf... Gagal Menyimpan Data !");

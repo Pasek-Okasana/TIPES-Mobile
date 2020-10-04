@@ -18,7 +18,9 @@ import com.tipes.mobile.databinding.ActivitySoalNumberTunggalBinding;
 import com.tipes.mobile.model.instrumen.ModelInstrumenList;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SoalNumberTunggalActivity extends AppCompatActivity {
 
@@ -288,11 +290,44 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
         sNilaiAct = "input-hasil_"+sIdKategori;
         sUsername = mSPM.getSPUsername();
 
-        makeSnack("Username " + sUsername + " Kategori " + sIdKategori +
-                " R " + sNilai1R +
-                " I " + sNilai2I +
-                " A " + sNilai3A
-        );
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("id_kategori", sIdKategori);
+        parameter.put("yes_resultR", sNilai1R);
+        parameter.put("yes_resultI",sNilai2I);
+        parameter.put("yes_resultA", sNilai3A);
+        parameter.put("yes_resultS", sNilai4S);
+        parameter.put("yes_resultE", sNilai5E);
+        parameter.put("yes_resultK", sNilai6K);
+        parameter.put("kick", "0");
+        parameter.put("module", "quiz");
+        parameter.put("act", sNilaiAct);
+        parameter.put("username", sUsername);
+        parameter.put("R", "");
+        parameter.put("I", "");
+        parameter.put("A", "");
+        parameter.put("S", "");
+        parameter.put("E", "");
+        parameter.put("K", "");
+        parameter.put("kick", "");
+
+        mViMoQuiz.postAksiQuiz(parameter).observe(this, datapost -> {
+            if (datapost != null){
+                if (datapost.getCode() == 201){
+                    finish();
+                } else {
+                    makeToast("Maaf... Gagal Menyimpan Data !");
+                }
+            } else {
+                makeSnack(getString(R.string.maafjaringansibuk));
+            }
+        });
+
+//        makeSnack("Username " + sUsername + " Kategori " + sIdKategori +
+//                " R " + sNilai1R +
+//                " I " + sNilai2I +
+//                " A " + sNilai3A
+//        );
     }
 
     private void startTimer() {

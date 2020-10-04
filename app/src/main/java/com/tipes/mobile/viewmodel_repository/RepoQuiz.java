@@ -141,7 +141,7 @@ public class RepoQuiz {
                 } else
                 {
                     ModelAksiQuiz maq = new ModelAksiQuiz();
-                    maq.setCode(String.valueOf(response.code()));
+                    maq.setCode(response.code());
                     maq.setMsg("Gagal Menyimpan data...");
 
                     data.setValue(maq);
