@@ -47,4 +47,8 @@ public class ViMoQuiz extends AndroidViewModel {
         liveDataAksiQuiz = mRepo.postAksiQuiz(parameter);
         return liveDataAksiQuiz;
     }
+    public LiveData<ModelAksiQuiz> postAksiHasil(Map<String, String> parameter) {
+        liveDataAksiQuiz = mRepo.postAksiHasil(parameter);
+        return liveDataAksiQuiz;
+    }
 }

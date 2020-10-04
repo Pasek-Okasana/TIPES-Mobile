@@ -170,5 +170,6 @@
     <string name="WaktuHabis">Waktu Habis !</string>
     <string name="waktu">waktu</string>
     <string name="maafjaringansibuk">Maaf Jaringan Sedang Sibuk... Silahkan Coba Lagi !</string>
+    <string name="SimpanHasilKuisioner">Simpan Hasil Kuisioner</string>
 
 </resources>

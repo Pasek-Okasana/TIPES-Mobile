@@ -31,6 +31,10 @@ public interface QuizEndPoint {
     @FormUrlEncoded
     @POST("api/quis/aksi_quiz")
     Call<ModelAksiQuiz> postAksiQuiz(@FieldMap Map<String, String> parameter);
+
+    @FormUrlEncoded
+    @POST("api/quis/aksi_hasil")
+    Call<ModelAksiQuiz> postAksiHasil(@FieldMap Map<String, String> parameter);
 //
 //
 //    @FormUrlEncoded

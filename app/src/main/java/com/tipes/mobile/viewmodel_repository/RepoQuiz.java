@@ -158,4 +158,33 @@ public class RepoQuiz {
 
         return data;
     }
+
+    public LiveData<ModelAksiQuiz> postAksiHasil(Map<String, String> parameter) {
+        final MutableLiveData<ModelAksiQuiz> data = new MutableLiveData<>();
+        mServiceQuizEP.postAksiQuiz(parameter).enqueue(new Callback<ModelAksiQuiz>() {
+            @Override
+            public void onResponse(Call<ModelAksiQuiz> call, Response<ModelAksiQuiz> response) {
+                if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                {
+                    data.setValue(response.body());
+                    makeLogI("Status Repo Log = " + response.code());
+                } else
+                {
+                    ModelAksiQuiz maq = new ModelAksiQuiz();
+                    maq.setCode(response.code());
+                    maq.setMsg("Gagal Menyimpan data...");
+
+                    data.setValue(maq);
+                    makeLogI("Status Repo Log = " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelAksiQuiz> call, Throwable t) {
+                data.setValue(null);
+                makeLogE("Status Repo Log = onFailure" );
+            }
+        });
+        return data;
+    }
 }

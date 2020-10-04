@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.tipes.mobile.R;
+import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.databinding.ActivityKuisionerBinding;
 import com.tipes.mobile.model.kategory.ModelKategoriList;
 import com.tipes.mobile.view.user.kuisioner.soal.number.SoalNumberTunggalActivity;
@@ -20,7 +21,9 @@ import com.tipes.mobile.view.user.kuisioner.soal.yesno.SoalActivity;
 import com.tipes.mobile.viewmodel.ViMoQuiz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class KuisionerActivity extends AppCompatActivity {
     private String TAG = KuisionerActivity.class.getSimpleName();
@@ -31,6 +34,8 @@ public class KuisionerActivity extends AppCompatActivity {
     private LinearLayoutManager mLayout;
     private List<ModelKategoriList> mList = new ArrayList<>();
 
+    private SharedPrefManager mSPM;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,7 @@ public class KuisionerActivity extends AppCompatActivity {
         setContentView(view);
         settingToolbar();
         mViMoQuiz = ViewModelProviders.of(this).get(ViMoQuiz.class);
-
+        mSPM = new SharedPrefManager(this);
         mAdapter = new KuisionerAdapter(mList);
         mLayout = new LinearLayoutManager(this);
 
@@ -62,10 +67,38 @@ public class KuisionerActivity extends AppCompatActivity {
             }
         });
 
-        whenAdapterClicked();
+        onClicked();
     }
 
-    private void whenAdapterClicked() {
+    private void onClicked() {
+        String sNilaiAct, sUsername;
+        sNilaiAct = "simpanhasil";
+        sUsername = mSPM.getSPUsername();
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("module", "hasil" );
+        parameter.put("act", sNilaiAct);
+        parameter.put("username", sUsername);
+        parameter.put("kick", "1");
+        parameter.put("parameter", "RSA" );
+        parameter.put("lulus", "0" );
+
+        binding.btnAksiHasil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViMoQuiz.postAksiHasil(parameter).observe(KuisionerActivity.this, data -> {
+                    if (data != null){
+                        if (data.getCode() == 201){
+                            makeSnack("Berhasil Disimpan... Silahkan Pilih Menu Hasil Pada Halaman Home Untuk Melihat Hasil Kuisioner Yang Diisi !");
+                        } else {
+                            makeSnack("Maaf... Data Gagal Disimpan !");
+                        }
+                    } else {
+                        makeSnack(getString(R.string.maafjaringansibuk));
+                    }
+                });
+            }
+        });
+
         mAdapter.setOnItemClickListener(new KuisionerAdapter.ClickListener() {
             @Override
             public void onCardClick(View v, int position) {
