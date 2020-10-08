@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/appBar">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="75dp"
             android:background="@drawable/radius_bg_top_white_25dp">
@@ -276,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="42dp"
                 android:padding="16dp">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -283,7 +284,8 @@
                     android:background="@drawable/radius_bg_tr_br_white_25dp"
                     android:backgroundTint="@color/colorUnguCF8BF3"
                     android:src="@drawable/ic_power_red_24dp"
-                    android:padding="16dp"/>
+                    android:padding="16dp"
+                    android:contentDescription="@string/todoo" tools:targetApi="lollipop" />
 
                 <TextView
                     android:layout_width="match_parent"

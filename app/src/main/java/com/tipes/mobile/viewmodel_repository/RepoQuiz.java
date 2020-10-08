@@ -10,10 +10,12 @@ import com.tipes.mobile.connection.networkapi.ClientGetRetrofit;
 import com.tipes.mobile.connection.networkapi.QuizEndPoint;
 import com.tipes.mobile.connection.session.SharedPrefManager;
 import com.tipes.mobile.model.aksiquiz.ModelAksiQuiz;
+import com.tipes.mobile.model.hasilaksi.ModelHasilQuiz;
 import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -110,6 +112,35 @@ public class RepoQuiz {
                         makeLogE("Status Repo Log = onFailure" );
                     }
                 });
+        return data;
+    }
+
+    public LiveData<ModelHasilQuiz> getHasilQuiz(String idsekolah)
+    {
+        final MutableLiveData<ModelHasilQuiz> data = new MutableLiveData<>();
+        mServiceQuizEP.getHasilQuiz(myUsername, idsekolah).enqueue(new Callback<ModelHasilQuiz>() {
+            @Override
+            public void onResponse(Call<ModelHasilQuiz> call, Response<ModelHasilQuiz> response) {
+                if (response.isSuccessful() && response.body() != null && response.code() == 201)
+                {
+                    data.setValue(response.body());
+                    makeLogI("Status Repo Log = " + response.code());
+                } else
+                {
+                    ModelHasilQuiz qh = new ModelHasilQuiz();
+                    qh.setCode(404);
+                    qh.setMessage("Gagal Memuat Data !");
+                    data.setValue(qh);
+                    makeLogI("Status Repo Log = " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelHasilQuiz> call, Throwable t) {
+                data.setValue(null);
+                makeLogI("Status Repo Log = Failure" );
+            }
+        });
         return data;
     }
 

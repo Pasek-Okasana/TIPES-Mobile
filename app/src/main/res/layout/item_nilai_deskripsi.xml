@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/container_item_dialog"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_ket_tipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="16dp"
+            android:textSize="17sp"
+            android:text="@string/Tipe"
+            android:textColor="@android:color/black"
+            android:layout_alignParentStart="true"
+            />
+        <TextView
+            android:id="@+id/txt_nilai_tipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="16dp"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/txt_ket_tipe"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_ket_kepribadian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="17sp"
+            android:text="@string/Kepribadian"
+            android:textColor="@android:color/black"
+            android:layout_alignParentStart="true"
+            />
+        <TextView
+            android:id="@+id/txt_nilai_kepribadian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="16dp"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/txt_ket_kepribadian"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/view_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:orientation="vertical"
+        android:background="@drawable/gradien_co_radar"
+        android:contentDescription="@string/TIPES" />
+
+</LinearLayout>

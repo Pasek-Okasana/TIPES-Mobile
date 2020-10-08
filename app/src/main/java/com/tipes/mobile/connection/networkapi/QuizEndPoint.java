@@ -1,6 +1,7 @@
 package com.tipes.mobile.connection.networkapi;
 
 import com.tipes.mobile.model.aksiquiz.ModelAksiQuiz;
+import com.tipes.mobile.model.hasilaksi.ModelHasilQuiz;
 import com.tipes.mobile.model.instrumen.ModelInstrumen;
 import com.tipes.mobile.model.kategory.ModelKategori;
 import com.tipes.mobile.model.soal.yesno.ModelSoalYN;
@@ -35,6 +36,12 @@ public interface QuizEndPoint {
     @FormUrlEncoded
     @POST("api/quis/aksi_hasil")
     Call<ModelAksiQuiz> postAksiHasil(@FieldMap Map<String, String> parameter);
+
+    @GET("api/quis/hasil/{username}/{idsekolah}")
+    Call<ModelHasilQuiz> getHasilQuiz(
+            @Path("username") String username,
+            @Path("idsekolah") String idsekolah
+    );
 //
 //
 //    @FormUrlEncoded

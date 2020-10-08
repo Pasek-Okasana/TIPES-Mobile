@@ -19,6 +19,7 @@ import com.tipes.mobile.databinding.ActivityMainUserBinding;
 import com.tipes.mobile.model.MenuDashboardModel;
 import com.tipes.mobile.view.user.akun.AkunActivity;
 import com.tipes.mobile.view.user.kuisioner.KuisionerActivity;
+import com.tipes.mobile.view.user.nilai.HasilActivity;
 import com.tipes.mobile.view.user.petunjuk.PetunjukActivity;
 
 import java.text.DateFormat;
@@ -79,7 +80,7 @@ public class MainActivityUser extends AppCompatActivity {
                         startActivity(new Intent(MainActivityUser.this, KuisionerActivity.class));
                         break;
                     case 2 :
-                        makeSnack("Nilai");
+                        startActivity(new Intent(MainActivityUser.this, HasilActivity.class));
                         break;
                     case 3 :
                         startActivity(new Intent(MainActivityUser.this, AkunActivity.class));

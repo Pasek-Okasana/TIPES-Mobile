@@ -171,5 +171,11 @@
     <string name="waktu">waktu</string>
     <string name="maafjaringansibuk">Maaf Jaringan Sedang Sibuk... Silahkan Coba Lagi !</string>
     <string name="SimpanHasilKuisioner">Simpan Hasil Kuisioner</string>
+    <string name="todoo">TODO</string>
+    <string name="Deskripsi">Deskripsi</string>
+    <string name="Lulus">Lulus</string>
+    <string name="Kompentensi">Kompentensi</string>
+    <string name="Tipe">Tipe</string>
+    <string name="Kepribadian">Kepribadian</string>
 
 </resources>
