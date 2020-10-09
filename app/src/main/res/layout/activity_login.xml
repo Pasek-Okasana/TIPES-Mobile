@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
         android:id="@+id/img_logo"
-        android:src="@drawable/gradien_co_tranquil"
+        android:src="@drawable/logoundiksha"
         android:contentDescription="@string/logo" />
 
     <TextView
@@ -135,11 +135,13 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
+            <include
+                android:id="@+id/loading_custom"
+                layout="@layout/custom_loading_mk" />
+
         </LinearLayout>
 
 
     </androidx.core.widget.NestedScrollView>
-    <include
-        android:id="@+id/loading_custom"
-        layout="@layout/custom_loading_mk"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
