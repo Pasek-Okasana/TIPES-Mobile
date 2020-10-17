@@ -2,6 +2,7 @@ package com.tipes.mobile.connection.networkapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.tipes.mobile.BuildConfig;
 
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
@@ -22,7 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ClientGetRetrofit {
     private static String baseurl2 = "http://kuis.pasekokasana.com/";
-    private static String baseurl = "https://api.iksytem.online/";
+    private static String baseurl3 = "https://api.iksytem.online/";
+    private static String baseurl = "http://simajuganesha.com/api-mobile/";
     /**
      ==================== Setting Http Inceptor dan SSL
      */

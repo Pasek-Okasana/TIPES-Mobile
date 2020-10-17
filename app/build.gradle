@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+// Define Variable API Key
+def STRING = 'String'
+def LINK_API_TIPES = '"' + LinkApiTipes + '"' ?: '"Define your Link API Tipes!"'
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -12,6 +17,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "ENV", "\"http://api.com\"")
+        buildConfigField("String", "ENVA", "\"${hiddenPassword}\"")
+        buildConfigField "String", "pass", "\"${hiddenPassword}\""
+
     }
 
     buildTypes {
@@ -20,7 +30,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 
     compileOptions {
         sourceCompatibility = 1.8

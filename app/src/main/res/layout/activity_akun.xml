@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="75dp"
+            android:paddingBottom="16dp"
             android:background="@drawable/radius_bg_top_white_25dp">
             <TextView
                 android:layout_width="wrap_content"
@@ -276,7 +277,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="42dp"
+                android:layout_marginBottom="80dp"
                 android:padding="16dp">
                 <ImageView
                     android:layout_width="wrap_content"

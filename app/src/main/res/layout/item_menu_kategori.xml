@@ -38,14 +38,14 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@id/img_logo"
                 android:layout_toStartOf="@id/btn_kerjakan"
                 android:layout_alignBottom="@id/btn_kerjakan"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:textSize="19sp"
+                android:textSize="17sp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"/>
 
