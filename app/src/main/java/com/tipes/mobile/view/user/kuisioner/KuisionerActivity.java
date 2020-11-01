@@ -67,6 +67,7 @@ public class KuisionerActivity extends AppCompatActivity {
             }
         });
 
+
         onClicked();
     }
 
@@ -105,35 +106,60 @@ public class KuisionerActivity extends AppCompatActivity {
                int num = Integer.parseInt(mAdapter.getItemPosition(position).getIdKategori());
                if (num == 4)
                {
-                   startActivity(
-                           new Intent(KuisionerActivity.this, SoalNumberTunggalActivity.class)
-                                   .putExtra(
-                                           String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
-                                   )
-                                   .putExtra(
-                                           String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
-                                   )
-                                   .putExtra(
-                                           String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
-                                   )
-                   );
-               } else {
-                   startActivity(
-                           new Intent(KuisionerActivity.this, SoalActivity.class)
-                                   .putExtra(
-                                           String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
-                                   )
-                                   .putExtra(
-                                           String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
-                                   )
-                                   .putExtra(
-                                           String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
-                                   )
-                   );
-               }
+                   if (mSPM.getStatusD()){
+                       startActivity(
+                               new Intent(KuisionerActivity.this, SoalNumberTunggalActivity.class)
+                                       .putExtra(
+                                               String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
+                                       )
+                                       .putExtra(
+                                               String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
+                                       )
+                                       .putExtra(
+                                               String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
+                                       )
+                       );
+                   } else {
+                       makeSnack("Anda Sudah Mengisi Kuisioner ! Jika ingin mengikuti kuisioner ulang, hubungi admin !");
+                   }
+
+               } else if (num == 1){
+                    if (mSPM.getStatusA()){
+                        openSoalActivity(mAdapter, position);
+                    } else {
+                        makeSnack("Anda Sudah Mengisi Kuisioner ! Jika ingin mengikuti kuisioner ulang, hubungi admin !");
+                    }
+                } else if (num == 2){
+                    if (mSPM.getStatusB()){
+                        openSoalActivity(mAdapter, position);
+                    } else {
+                        makeSnack("Anda Sudah Mengisi Kuisioner ! Jika ingin mengikuti kuisioner ulang, hubungi admin !");
+                    }
+                } else if (num == 3){
+                    if (mSPM.getStatusC()){
+                        openSoalActivity(mAdapter, position);
+                    } else {
+                        makeSnack("Anda Sudah Mengisi Kuisioner ! Jika ingin mengikuti kuisioner ulang, hubungi admin !");
+                    }
+                }
 //                makeSnack(mAdapter.getItemPosition(position).getNamaKategori());
             }
         });
+    }
+
+    private void openSoalActivity(KuisionerAdapter mAdapter, int position) {
+        startActivity(
+                new Intent(KuisionerActivity.this, SoalActivity.class)
+                        .putExtra(
+                                String.valueOf(R.string.idkategori), mAdapter.getItemPosition(position).getIdKategori()
+                        )
+                        .putExtra(
+                                String.valueOf(R.string.kategori), mAdapter.getItemPosition(position).getNamaKategori()
+                        )
+                        .putExtra(
+                                String.valueOf(R.string.waktu), mAdapter.getItemPosition(position).getWaktu()
+                        )
+        );
     }
 
     private void settingToolbar() {

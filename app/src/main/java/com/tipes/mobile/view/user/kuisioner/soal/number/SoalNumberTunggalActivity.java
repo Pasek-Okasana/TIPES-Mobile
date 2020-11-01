@@ -49,6 +49,7 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
         intIdKategori = Integer.parseInt(sIdKategori);
         intWaktuSoal = Integer.parseInt(extras.getString(String.valueOf(R.string.waktu)));
 
+
         settingToolbar();
         mViMoQuiz = ViewModelProviders.of(this).get(ViMoQuiz.class);
 
@@ -314,6 +315,7 @@ public class SoalNumberTunggalActivity extends AppCompatActivity {
         mViMoQuiz.postAksiQuiz(parameter).observe(this, datapost -> {
             if (datapost != null){
                 if (datapost.getCode() == 201){
+                    mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_D), false);
                     finish();
                 } else {
                     makeToast("Maaf... Gagal Menyimpan Data !");

@@ -159,6 +159,13 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
         mViMoQuiz.postAksiQuiz(parameter).observe(this, datapost -> {
             if (datapost != null){
                 if (datapost.getCode() == 201){
+                    if (intIdKategori == 1){
+                        mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_A), false);
+                    } else if (intIdKategori == 2){
+                        mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_B), false);
+                    } else if (intIdKategori == 3){
+                        mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_C), false);
+                    }
                     finish();
                 } else {
                     makeToast("Maaf... Gagal Menyimpan Data !");
@@ -369,6 +376,7 @@ public class SoalActivity extends AppCompatActivity implements SoalYNOnClickList
             }
         });
     }
+
     /**
      ==================== Make Toast
      */

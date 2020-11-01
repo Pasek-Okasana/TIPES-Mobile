@@ -177,5 +177,9 @@
     <string name="Kompentensi">Kompentensi</string>
     <string name="Tipe">Tipe</string>
     <string name="Kepribadian">Kepribadian</string>
+    <string name="SP_STATUS_A">Sp_Status_Kat_A</string>
+    <string name="SP_STATUS_B">Sp_Status_Kat_B</string>
+    <string name="SP_STATUS_C">Sp_Status_Kat_C</string>
+    <string name="SP_STATUS_D">Sp_Status_Kat_D</string>
 
 </resources>

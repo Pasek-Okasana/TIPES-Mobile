@@ -135,13 +135,13 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-            <include
-                android:id="@+id/loading_custom"
-                layout="@layout/custom_loading_mk" />
+
 
         </LinearLayout>
 
 
     </androidx.core.widget.NestedScrollView>
-
+    <include
+        android:id="@+id/loading_custom"
+        layout="@layout/custom_loading_mk" />
 </androidx.constraintlayout.widget.ConstraintLayout>

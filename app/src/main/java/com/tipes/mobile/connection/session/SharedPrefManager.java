@@ -50,4 +50,16 @@ public class SharedPrefManager {
     public Boolean getSPStillLogin(){
         return sp.getBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), false);
     }
+    public Boolean getStatusA(){
+        return sp.getBoolean(String.valueOf(R.string.SP_STATUS_A), true);
+    }
+    public Boolean getStatusB(){
+        return sp.getBoolean(String.valueOf(R.string.SP_STATUS_B), true);
+    }
+    public Boolean getStatusC(){
+        return sp.getBoolean(String.valueOf(R.string.SP_STATUS_C), true);
+    }
+    public Boolean getStatusD(){
+        return sp.getBoolean(String.valueOf(R.string.SP_STATUS_D), true);
+    }
 }

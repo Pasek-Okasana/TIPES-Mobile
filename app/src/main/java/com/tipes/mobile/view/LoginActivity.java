@@ -120,6 +120,10 @@ public class LoginActivity extends AppCompatActivity {
 //                {
 //                    role = 2;
 //                }
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_A), true);
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_B), true);
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_C), true);
+                mSPM.saveSPBoolean(String.valueOf(R.string.SP_STATUS_D), true);
                 mSPM.saveSPBoolean(String.valueOf(R.string.SP_STILL_LOGIN_APP), true);
                 mSPM.saveSPString(String.valueOf(R.string.SP_USERNAME_APP), username);
 //                mSPM.saveSPString(String.valueOf(R.string.SP_ID_USER_APP), "12");
