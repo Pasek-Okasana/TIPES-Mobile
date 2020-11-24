@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mSPM = new SharedPrefManager(LoginActivity.this);
 
-        // Cek Login
+        // Cek Role Login
         if (mSPM.getSPRole() > 0)
         {
             role = mSPM.getSPRole();
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
                 );
 
-            } else if (role == 1)
+            } else if (role == 1) // Jika Ingin Menambahkan Admin
             {
 //                startActivity(
 //                        new Intent(this, BottomNavigationMedisActivity.class)

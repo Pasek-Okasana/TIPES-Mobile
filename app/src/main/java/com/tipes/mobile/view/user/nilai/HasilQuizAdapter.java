@@ -42,6 +42,9 @@ public class HasilQuizAdapter extends RecyclerView.Adapter<HasilQuizAdapter.Hasi
     public ModelHasilQuizData_Deskripsi getItemPosition(int position){
         return mList.get(position);
     }
+    public List<ModelHasilQuizData_Deskripsi> getAllItem(){
+        return mList;
+    }
 
     public class HasilViewHolder extends RecyclerView.ViewHolder {
         ItemNilaiDeskripsiBinding binding;
