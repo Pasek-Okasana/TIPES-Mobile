@@ -182,5 +182,6 @@
     <string name="SP_STATUS_C">Sp_Status_Kat_C</string>
     <string name="SP_STATUS_D">Sp_Status_Kat_D</string>
     <string name="SimpanPDF">Simpan PDF</string>
+    <string name="NomerSiswa">Nomer Siswa</string>
 
 </resources>

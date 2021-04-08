@@ -92,7 +92,7 @@
                 android:layout_marginTop="32dp"
                 android:padding="16dp"
                 android:background="@drawable/radius_outline_border_gray_10dp"
-                android:hint="@string/Username"
+                android:hint="@string/NomerSiswa"
                 android:autofillHints=""
                 android:inputType="text" />
 

@@ -2,7 +2,6 @@ package com.tipes.mobile.connection.networkapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tipes.mobile.BuildConfig;
 
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
